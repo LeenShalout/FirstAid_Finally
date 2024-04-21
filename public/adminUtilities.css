@@ -1,0 +1,37 @@
+
+a{
+    all: unset;
+    cursor: pointer;
+}
+ul{
+    list-style: none;
+}
+/* Text Color */
+.primary-color{
+    color: #D22B2B;
+}
+.secondary-color{
+    color: #333;
+}
+.gray{
+    color: #878787;
+}
+/* Buttons */
+.btn-primary{
+    background-color: #D22B2B !important;
+    border: none !important;
+}
+.btn-outline-primary{
+    color: #D22B2B;
+    border-color: #D22B2B;
+}
+.btn-outline-primary:hover{
+    background-color: #D22B2B;
+    border-color: #D22B2B;
+}
+/* Input focus */
+.input-group input:focus,
+.input-group textarea:focus{
+    border: #D22B2B 1px solid;
+    box-shadow: none;
+}

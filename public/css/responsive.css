@@ -1,0 +1,49 @@
+/* Responsive */
+/* @media(max-width: 1150px){
+    .about-info{
+        padding: 80px;
+    }
+    .about-info .right img{
+        width: 28rem;
+        height: 14rem;
+        margin-top: 1rem;
+    }
+    .about-info .right{
+        display: flex;
+        justify-content: right;
+    }
+    .cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media(max-width: 768px){
+    .main-img{
+        display: flex;
+        justify-content: center;
+    }
+    .main-img img{
+        width: auto;
+        height: auto;
+    }
+   .cards .card{
+    width: 20rem;
+    height: auto;
+   }
+   .contact-right img{
+    display: none;
+   }
+}
+@media(max-width: 576px){
+    .main-img img{
+        width: 20rem;
+        height: 20rem;
+    }
+    .about-info .right{
+        display: flex;
+        justify-content: center;
+    }
+} */

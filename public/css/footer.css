@@ -1,0 +1,44 @@
+#footer{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,0.7903361173570991) 0%, rgb(255, 253, 224) 100%);
+}
+.footer-container{
+    max-width: 1500px;
+    margin: auto;
+}
+.aidhub img{
+    height: 8rem;
+    width: 8rem;
+}
+.social-media-img{
+    height: 2rem;
+    width: 2rem;
+}
+.useful-links ul li{
+color: #000;
+}
+.useful-links ul li:hover{
+color: #D22B2B;
+}
+@media(max-width: 768px){
+    .footer-container .row{
+        display:flex;
+        flex-direction: column;
+        margin: 0 1rem 0 1rem;
+        /* padding: 2rem; */
+}
+.aidhub,
+.useful-links,
+.social-media{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.experience{
+    margin-bottom: 2rem;
+}
+}
+#footer svg{
+    fill: #fff;
+}

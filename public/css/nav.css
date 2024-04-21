@@ -1,0 +1,42 @@
+#header{
+    background: #D22B2B;
+}
+.navbar{
+    background-color: transparent;
+    /* position: sticky; */
+    width: 100%;
+    /* z-index: 9999; */
+    top: 0;
+    /* transition: background-color 0.3s ease; */
+}
+.navbar.scrolled{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,0.7903361173570991) 0%, rgba(255,253,224,1) 100%);
+}
+.navbar-nav .nav-link {
+    border-bottom: transparent 2px solid;
+}
+.navbar-nav li a:hover {
+    border-bottom: #D22B2B 2px solid;
+}
+.nav-item a{
+    margin-right: 1.5rem;
+    transition: background-color 0.3s ease;
+
+}
+.input-group .btn{
+    background: #fff;
+}
+
+.input-group input:focus,
+.input-group textarea:focus{
+border: #D22B2B 1px solid;
+box-shadow: none;
+}
+@media(max-width: 768px){
+    .navbar-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
