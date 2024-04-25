@@ -86,7 +86,7 @@
           pointStrokeColor    : 'rgba(225,51,0,255)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(225,51,0,255)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
+          data                : [48, 28, 30, 19, 86, 27, 90]
         },
         {}
       ]
@@ -142,15 +142,15 @@
     //var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Heart Attack',
-          'Bleeding',
-          'Shock',
-          'Burns',
+          'Human Body',
+          'Natural Disasters',
+          'Animal-Related Injuries',
+          '',
       ],
       datasets: [
         {
-          data: [50,70,40,80],
-          backgroundColor : ['#1a1a1a', '#e13300', '#808080','#f09980' ],
+          data: [50,70,40],
+          backgroundColor : [ '#e13300', '#808080','#f09980' ],
         }
       ]
     }

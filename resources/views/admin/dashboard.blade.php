@@ -92,7 +92,7 @@ Dashboard
            <h3 style="color: #e13300;">150</h3>
 
 
-            <h4 style="color: black;">Visitors</h4>
+            <h4 style="color: black;">Users</h4>
           </div>
           <div class="icon">
             <i class="ion ion-person"></i>
@@ -108,10 +108,53 @@ Dashboard
           <div class="inner">
             <h3 style="color: #e13300;">200</h3>
 
-            <h4 style="color: black;">Clicks</h4>
+            <h4 style="color: black;">Cases</h4>
           </div>
           <div class="icon">
-            <i class="fas fa-mouse-pointer fa-xs"></i>
+            <i class="ion ion-briefcase"></i>
+
+
+          </div>
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+    <!-- /.row -->
+
+     <!-- /.row -->
+    </div><!-- /.container-fluid -->
+    <section class="content">
+      <div class="container-fluid">
+     <!-- Small boxes (Stat box) -->
+     <div class="row">
+      <div class="col-lg-6 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+           <h3 style="color: #e13300;">#</h3>
+
+
+            <h4 style="color: black;">Blog</h4>
+          </div>
+          <div class="icon">
+            <i class="fas fa-blog"></i>
+
+          </div>
+          <a href="#" class="small-box-footer" >More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-6 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3 style="color: #e13300;">#</h3>
+
+            <h4 style="color: black;">Workshop</h4>
+          </div>
+          <div class="icon">
+            <i class="fas fa-book"></i>
 
 
           </div>

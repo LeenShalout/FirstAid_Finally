@@ -3,24 +3,25 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{myProfileController,AuthController};
+use App\Http\Controllers\Auth\adminLoginController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MyUserController;
 use App\Http\Controllers\ExperienceController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('indexUser');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -33,44 +34,44 @@ Route::middleware('auth')->group(function () {
 |
 */
 // User Routes
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/cases', function () {
-    return view('layouts.cases');
-});
-Route::get('/mainCases', function () {
-    return view('layouts.mainCases');
-});
-Route::get('/blogs', function () {
-    return view('layouts.blogs');
-});
-Route::get('/mainBlogs', function () {
-    return view('mainBlogs');
-});
-Route::get('/workshop', function () {
-    return view('workshop');
-});
-Route::get('/signup', function () {
-    return view('signup');
-});
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/profile', function () {
-    return view('profile');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+// Route::get('/cases', function () {
+//     return view('layouts.cases');
+// });
+// Route::get('/mainCases', function () {
+//     return view('layouts.mainCases');
+// });
+// Route::get('/blogs', function () {
+//     return view('layouts.blogs');
+// });
+// Route::get('/mainBlogs', function () {
+//     return view('mainBlogs');
+// });
+// Route::get('/workshop', function () {
+//     return view('workshop');
+// });
+// Route::get('/signup', function () {
+//     return view('signup');
+// });
+// Route::get('/login', function () {
+//     return view('login');
+// });
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
 
 
-Route::get('/forum', function () {
-    return view('forum');
-});
+// Route::get('/forum', function () {
+//     return view('forum');
+// });
 
 
 
-Route::get('/workshop', function () {
-    return view('workshop');
-});
+// Route::get('/workshop', function () {
+//     return view('workshop');
+// });
 
 
 
@@ -126,6 +127,7 @@ Route::get('contacts/restore/{id}',[ContactController::class,'restore'])->name(n
 Route::resource(name:'users', controller:MyUserController::class);
 Route::get('users/showDeletedUsers',[MyUserController::class,'showDeletedUsers'])->name(name:'users.showDeletedUsers');
 Route::get('contacts/showDeletedContacts',[ContactController::class,'showDeletedContacts'])->name(name:'contacts.showDeletedContacts');
+Route::get('experiences/showDeletedContacts',[ExperienceController::class,'showDeletedExperiences'])->name(name:'experiences.showDeletedExperiences');
 
 Route::get('users/restore/{id}',[MyUserController::class,'restore'])->name(name:'users.restore');
 
@@ -136,6 +138,17 @@ Route::resource(name:'experiences', controller:ExperienceController::class);
 Route::get('experiences/forcedelete/{id}',[ExperienceController::class,'forceDelete'])->name(name:'experiences.forcedelete');
 
 Route::get('experiences/restore/{id}',[ExperienceController::class,'restore'])->name(name:'experiences.restore');
+
+Route::get('adminLogin', [adminLoginController::class, 'create'])
+->name('adminLogin');
+Route::post('adminLogin', [adminLoginController::class, 'store']);
+Route::middleware(['auth','verified','admin'])->group(function () {
+
+Route::get('/admin/dashboard', [AdminProfileController::class, "dashboard"])->name('dashboard');
+
+
+});
+
 
 
 require __DIR__.'/auth.php';

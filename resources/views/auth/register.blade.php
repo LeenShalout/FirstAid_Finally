@@ -40,6 +40,19 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+ <div  class="mb-3">
+            <x-input-label for="location" class="form-label" :value="__('Location')" />
+            <x-text-input id="location" class="form-control" type="text" name="location" :value="old('location')"  placeholder="Location" required autofocus autocomplete="location" />
+            <x-input-error :messages="$errors->get('location')" class="mt-2" />
+        </div>
+
+        <div  class="mb-3">
+            <x-input-label for="Phone" class="form-label" :value="__('Phone')" />
+            <x-text-input id="Phone" class="form-control" type="text" name="Phone" :value="old('Phone')"  placeholder="+962 000 000 000" required autofocus autocomplete="Phone" />
+            <x-input-error :messages="$errors->get('Phone')" class="mt-2" />
+        </div>
+
+
         <div class="flex items-center justify-between mt-3">
             <a class="mt-3 mb-3 gray d-flex justify-content-start" href="{{ route('login') }}">
                 {{ __('Already registered?') }}

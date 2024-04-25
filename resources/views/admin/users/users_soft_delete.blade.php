@@ -5,7 +5,7 @@ Deleted Users Table
 @stop
 
 @section('admin')
-Deleted Users
+Deleted Users/ Admins
 @endsection
 
 @section('example')
@@ -50,13 +50,12 @@ Table
                             <tr>
 
                                
-                                <td>{{$user->fullname}} </td>
+                                <td>{{$user->name}} </td>
                                 <td>{{$user->email}} </td>
                                 <td>{{$user->password}} </td>
                                 <td>{{$user->img}} </td>
                                 <td>{{$user->location}} </td>
                                 <td>{{$user->Phone}} </td>
-                                <td>{{$user->date_of_birth}} </td>
 
                         <td>
                             <a href="{{route('users.restore',$user->id)}}" style="color: #e13300;">
@@ -74,7 +73,7 @@ Table
                         </td>
                     </tr>
                     @endforeach
-                    <a href="{{ route('users.index') }}" style="color: #e13300; text-decoration: underline;">Users Table</a><br><br>
+                    <a href="{{ route('users.index') }}" style="color: #e13300; text-decoration: underline;">Users/ Admins Table</a><br><br>
                         </thead>
                         <tbody>
                             <!-- Table 1 rows go here -->

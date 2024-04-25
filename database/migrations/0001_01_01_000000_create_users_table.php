@@ -19,11 +19,9 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('fullname');
             $table->string('img')->nullable();
             $table->text('location');
             $table->text('Phone');
-            $table->date('date_of_birth');
             $table->softDeletes();
             $table->string('role')->default('user');
         });

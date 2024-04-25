@@ -30,13 +30,13 @@ User
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                        <form method="post" action="{{ route('users.update',$user->id) }}">
+                        <form method="post" enctype="multipart/form-data" action="{{ route('users.update',$user->id) }}">
                             @method('PATCH')
                             @csrf
                         <!-- Your form elements here -->
                         <div class="form-group">
-                            <label for="fullname">Username:</label>
-                            <input type="text" class="form-control" id="fullname" name="fullname" value="" placeholder="Full Name">
+                            <label for="name">Username:</label>
+                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Full Name">
                         </div>
                         <div class="form-group">
     <label for="exampleFormControlInput1">Email </label>
@@ -62,9 +62,13 @@ User
                                     <input type="text" class="form-control" id="Phone" name="Phone" placeholder="+962 000 000 000">
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="date_of_birth">Date of Birth:</label>
-                                        <input type="text" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="dd/mm/yyyy">
+
+                                        <div class="form-group">
+                                            <select name="role">
+                                                <option value="user">User</option>
+                                                    <option value="admin">Admin</option>
+                                            </select>
+
                                         </div>
   <div class="form-group text-center">
     <input type="submit" class="btn btn-primary btn-lg" value="Edit">

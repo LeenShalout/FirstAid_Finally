@@ -69,7 +69,7 @@ class ContactController extends Controller
 
     public function showDeletedContacts(){
 
-        $contacts=Contact::whereNotNull('deleted_at')->get();
+$contacts=Contact::whereNotNull('deleted_at')->get();
 return view('admin.message.message_soft_delete',compact('contacts'));
     }
 

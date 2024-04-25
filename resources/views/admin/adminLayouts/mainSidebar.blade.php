@@ -109,7 +109,7 @@
             <a href="{{ route('users.index') }}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Users table
+                Users/ Admins table
               </p>
             </a>
           </li>
@@ -140,7 +140,14 @@
               </p>
             </a>
           </li>
- 
+          <li class="nav-item">
+            <a href="{{route('logout')}}" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+               Logout
+              </p>
+            </a>
+          </li>
           
       </nav>
       <!-- /.sidebar-menu -->

@@ -49,8 +49,6 @@ Profile
                 </style>
 
                 <h3 class="profile-username text-center profile-info">Nadin Alhassan</h3>
-
-                <p class="text-muted text-center profile-info">Software Developer</p>
                 <p class="text-muted text-center">nadinalhassan3@gmail.com</p>
 
                 
@@ -110,21 +108,9 @@ Profile
                             </div> <div id="settings">
                     <form class="form-horizontal">
                       <div class="form-group row">
-                        <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+                        <label for="name" class="col-sm-2 col-form-label">Full Name</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputFirstName" placeholder="FirstName">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputLastName" placeholder="LastName">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="headline" class="col-sm-2 col-form-label">Headline</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="headline" placeholder="Headline">
+                          <input type="text" class="form-control" id="name" placeholder="Full Name">
                         </div>
                       </div>
                       
@@ -135,11 +121,18 @@ Profile
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="education" class="col-sm-2 col-form-label">Education</label>
+                        <label for="password" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="education" placeholder="Education">
+                          <input type="password" class="form-control" id="password" placeholder="password">
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label for="img" class="col-sm-2 col-form-label">Image:</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control-file" id="img" name="img">
+                        </div>
+                    </div>
+                    
                       <div class="form-group row">
                         <label for="location" class="col-sm-2 col-form-label">Location</label>
                         <div class="col-sm-10">
@@ -148,17 +141,13 @@ Profile
                       </div>
                     
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <label for="Phone" class="col-sm-2 col-form-label">Phone</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                          <input type="text" class="form-control" id="Phone" placeholder="Skills">
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                        <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                        </div>
-                      </div>
+                    
+                    
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <div class="checkbox">

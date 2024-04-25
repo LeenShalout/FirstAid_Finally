@@ -35,9 +35,9 @@ Form
                             @csrf
                         <!-- Your form elements here -->
                         <div class="form-group">
-                            <label for="fullname">Username:</label>
-                            <input type="text" class="form-control" id="fullname" name="fullname" value="" placeholder="Full Name" required>
-                            @error('fullname')
+                            <label for="name">Username:</label>
+                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Full Name" required>
+                            @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                          @enderror
                         </div>
@@ -77,13 +77,7 @@ Form
                                  @enderror    
                                 </div>
 
-                                    <div class="form-group">
-                                        <label for="date_of_birth">Date of Birth:</label>
-                                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="dd/mm/yyyy" required>
-                                        @error('date_of_birth')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                     @enderror    
-                                    </div>
+                            
   <div class="form-group text-center">
     <input type="submit" class="btn btn-primary btn-lg" value="Add">
   </div>

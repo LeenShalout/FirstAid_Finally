@@ -31,7 +31,7 @@ Table
         <div class="card">
                 <div class="card-header">
                     
-                    <!--a href="{{route('users.showDeletedContacts')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Contacts</a--> 
+                    <a href="{{route('contacts.showDeletedContacts')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Contacts</a> 
                    
                 </div>
                 <!-- /.card-header -->

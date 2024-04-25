@@ -30,10 +30,9 @@ Table
       <div class="content">
         <div class="container-fluid">
         <div class="card">
-                <div class="card-header">
-                    @if (!($experiences->isEmpty()))
-                    <a href="{{route('experiences.show', $experiences->first()->id)}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Experiences</a> 
-                @endif
+                <div class="card-header"> 
+                    <a href="{{route('experiences.showDeletedExperiences')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Experiences</a> 
+                 
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

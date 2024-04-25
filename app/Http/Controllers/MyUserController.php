@@ -30,23 +30,27 @@ class MyUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([ 
-            'fullname'=>'required', 
+            'name'=>'required', 
             'email' => 'required',
             'password'=>'required',
             'img'=>'required',
             'location'=>'required',
             'Phone'=>'required',
-            'date_of_birth' => 'required',
         ]);
 
+        if ($request->hasFile('img')) {
+            $imgName = $request->file('img')->getClientOriginalName();
+            $request->file('img')->storeAs('public/image', $imgName);
+        } else {
+            $imgName = 'default_image.jpg'; 
+        }
         $myUser=new MyUser();
-        $myUser->fullname=$request->fullname;
+        $myUser->name=$request->name;
         $myUser->email=$request->email;
         $myUser->password=$request->password;
-        $myUser->img=$request->img;
+        $myUser->img=$imgName;
         $myUser->location=$request->location;
         $myUser->Phone=$request->Phone;
-        $myUser->date_of_birth=$request->date_of_birth;
         $myUser->save();
         return redirect()->route('users.index')->with('success','User added successfully');
 
@@ -77,13 +81,13 @@ class MyUserController extends Controller
     {
         $user=MyUser::findOrFail($id);
         $user->update([
-            'fullname'=>$request->fullname,
+            'name'=>$request->name,
             'email'=>$request->email,
             'password'=>$request->password,
             'img'=>$request->img,
             'location'=>$request->location,
             'Phone'=>$request->Phone,
-            'date_of_birth'=>$request->date_of_birth,
+            'role'=>$request->role
 
         ]);
         return redirect()->route('users.index');

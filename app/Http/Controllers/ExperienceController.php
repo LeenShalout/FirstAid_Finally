@@ -67,6 +67,12 @@ class ExperienceController extends Controller
         
     }
 
+    public function showDeletedExperiences()
+    {
+        $experiences=Experience::whereNotNull('deleted_at')->get();
+return view('admin.feedback.feedback_soft_delete',compact('experiences'));
+    }
+
     public function restore($id){
         Experience::withTrashed()->where('id',$id)
        ->restore();

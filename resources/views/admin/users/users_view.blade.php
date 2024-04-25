@@ -5,7 +5,7 @@ Users Table
 @stop
 
 @section('admin')
-Users
+Users/ Admins
 @endsection
 
 @section('example')
@@ -17,7 +17,7 @@ Table
 @endsection
 
 @section('titlePage1')
-Users
+UsersAdmins
 @endsection
 
 @section('titlePage2')
@@ -30,9 +30,9 @@ Table
         <div class="container-fluid">
         <div class="card">
                 <div class="card-header">
-                    <a href="{{route('users.create')}}"style="background-color:#e13300; border-color:#e13300;" class="btn btn-primary float-right">Add User</a>
+                    <a href="{{ route('users.create') }}" style="background-color: #e13300; border-color: #e13300;" class="btn btn-primary float-right">Add User</a>
 
-                    
+
                     <a href="{{route('users.showDeletedUsers')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Users</a> 
                
                 </div>
@@ -58,13 +58,12 @@ Table
                             <tr>
 
                                
-                                <td>{{$user->fullname}} </td>
+                                <td>{{$user->name}} </td>
                                 <td>{{$user->email}} </td>
                                 <td>{{$user->password}} </td>
-                                <td>{{$user->img}} </td>
+                                <td><img src="{{URL::asset("storage/image/".$user->img)}}" alt="{{$user->img}}" style="width:75px; height:75px"> </td>
                                 <td>{{$user->location}} </td>
                                 <td>{{$user->Phone}} </td>
-                                <td>{{$user->date_of_birth}} </td>
 
                         <td>
                             <a href="{{route('users.edit',$user->id)}}" style="color: #e13300;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -77,6 +76,68 @@ Table
                             </form>
                     
                         </td>
+                    </tr>
+                    @endforeach
+                        </thead>
+                        <tbody>
+                            <!-- Table 1 rows go here -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <div class="card">
+                <div class="card-header">
+
+<a href="#" style="background-color: #e13300; border-color: #e13300; margin-right: 10px;" class="btn btn-primary float-right">Add Admin</a>
+
+                    <a href="{{route('users.showDeletedUsers')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Admins</a> 
+               
+                </div>
+
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Image</th>
+                                <th>Location</th>
+                                <th>Phone</th>
+                                <th>Date of Birth</th>
+                                <th>Action</th>
+
+                            </tr>
+                           
+
+                            @foreach ($users as $user)
+                            
+                            <tr>
+
+                               @if ($user->role=="admin")
+                               <td>{{$user->name}} </td>
+                               <td>{{$user->email}} </td>
+                               <td>{{$user->password}} </td>
+                               <td><img src="{{URL::asset("storage/image/".$user->img)}}" alt="{{$user->img}}" style="width:75px; height:75px"> </td>
+                               <td>{{$user->location}} </td>
+                               <td>{{$user->Phone}} </td>
+                       <td>
+                           <a href="{{route('users.edit',$user->id)}}" style="color: #e13300;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                           <form method="POST" action="{{ route('users.destroy', $user->id) }}" style="display: inline;">
+                               @csrf
+                               @method('DELETE')
+                               <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;color: #e13300;">
+                                   <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                               </button>
+                           </form>
+                   
+                       </td>
+                               @endif
+                                
                     </tr>
                     @endforeach
                         </thead>
