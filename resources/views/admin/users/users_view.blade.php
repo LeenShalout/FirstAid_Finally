@@ -49,6 +49,7 @@ Table
                                 <th>Image</th>
                                 <th>Location</th>
                                 <th>Phone</th>
+                                <th>Role</th>
                                 <th>Action</th>
                             </tr>
                            
@@ -64,6 +65,7 @@ Table
                                 <td><img src="{{URL::asset("storage/image/".$user->img)}}" alt="{{$user->img}}" style="width:75px; height:75px"> </td>
                                 <td>{{$user->location}} </td>
                                 <td>{{$user->Phone}} </td>
+                                <td>{{$user->role}} </td>
 
                         <td>
                             <a href="{{route('users.edit',$user->id)}}" style="color: #e13300;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -112,6 +114,7 @@ Table
                                 <th>Image</th>
                                 <th>Location</th>
                                 <th>Phone</th>
+                                <th>Role</th>
                                 <th>Action</th>
 
                             </tr>
@@ -129,6 +132,7 @@ Table
                                <td><img src="{{URL::asset("storage/image/".$admin->img)}}" alt="{{$admin->img}}" style="width:75px; height:75px"> </td>
                                <td>{{$admin->location}} </td>
                                <td>{{$admin->Phone}} </td>
+                               <td>{{$admin->role}} </td>
                        <td>
                            <a href="{{route('users.edit',$admin->id)}}" style="color: #e13300;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                            <form method="POST" action="{{ route('users.destroy', $admin->id) }}" style="display: inline;">

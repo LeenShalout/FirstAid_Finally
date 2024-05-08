@@ -80,6 +80,16 @@ Form
                                  @enderror    
                                 </div>
 
+                                <div class="form-group">
+                                    <select name="role">
+                                        <option value="0">0</option>
+                                            <option value="1">1</option>
+                                    </select>
+                                    @error('role')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                 @enderror
+                                </div>
+
                             
   <div class="form-group text-center">
     <input type="submit" class="btn btn-primary btn-lg" value="Add">

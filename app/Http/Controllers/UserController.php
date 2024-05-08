@@ -47,6 +47,7 @@ class UserController extends Controller
             'img'=>'required',
             'location'=>'required',
             'Phone'=>'required',
+            'role'=>'required'
         ]);
 // dd($request->hasFile('img'));
         if ($request->hasFile('img')) {
@@ -63,6 +64,7 @@ class UserController extends Controller
         $myUser->img=$imgName;
         $myUser->location=$request->location;
         $myUser->Phone=$request->Phone;
+        $myUser->role=$request->role;
         $myUser->save();
         return redirect()->route('users.index')->with('success','User added successfully');
 
@@ -106,7 +108,10 @@ class UserController extends Controller
             $imgName=basename($imgPath);
             $user->img=$imgName;
         }
-      
+        if ($user->role != $request->role) {
+            $user->role = $request->role;
+            // Additional logic for role change, if needed
+        }
         
         $user->update([
             'name'=>$request->name,
@@ -114,7 +119,7 @@ class UserController extends Controller
             'password'=>$request->password,
             'location'=>$request->location,
             'Phone'=>$request->Phone,
-            'role'=>$request->role,
+           
             
 
         ]);

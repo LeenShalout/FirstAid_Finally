@@ -39,9 +39,9 @@ Table
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Name</th>
                                 <th>Post</th>
                                 <th>Image</th>
+                                <th>deleted_at</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
                                 <th>Action</th>
@@ -53,6 +53,7 @@ Table
 
                                 <td>{{$experience->Post}} </td>
                                 <td>{{$experience->Img}} </td>
+                                <td>{{$experience->deleted_at }}</td>
                                 <td>{{$experience->created_at }}</td>
                                 <td>{{$experience->updated_at }}</td>
                             
