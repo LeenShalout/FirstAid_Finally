@@ -1,4 +1,5 @@
 <title>@yield('title')</title>
+<link re="icon" type="image/x-icon" href="{{asset('css.admin/dist/img/default_img.png')}}"> </link>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

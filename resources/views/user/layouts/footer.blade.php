@@ -35,7 +35,7 @@
             <div class="col experience">
                 <div><h6>Let's encourage each other to share our experiences with first aid to benefit and empower others in our community.</h6></div>
 
-                <button class="btn btn-primary"><a href="/forum">Share Your Experience</a></button>
+                <button class="btn btn-primary"><a href="/experienceAllPosts">Share Your Experience</a></button>
             </div>
             <hr>
         <div class="row">

@@ -15,6 +15,9 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
+      //if(!auth()->check()||!auth()->user()->is_admin){
+        //abort(code:403);
+     // }
       if (auth()->check()||auth()->user()->role!="admin"){
         abort(403);
       }

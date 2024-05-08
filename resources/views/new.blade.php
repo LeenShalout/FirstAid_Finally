@@ -18,7 +18,7 @@
 @endsection
 
 {{-- Sub-master --}}
-@extends('layouts.subMaster')
+@extends('user.layouts.subMaster')
 
 @section('title')
 

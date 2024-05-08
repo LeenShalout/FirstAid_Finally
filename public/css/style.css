@@ -55,11 +55,14 @@ html, body{
     width: 35vw;
     height: 35vh;
 }
-
+/*Cases*/
 .cards img{
     /* height: 30vh;
     width: auto; */
     border-radius: 5px 5px 0px 0px;
+}
+.card-text{
+    height: 5rem;
 }
 
 .card-img-top {
@@ -100,6 +103,7 @@ object-fit: cover;
     transform: rotate(45deg);
 
 }
+
 /* Blogs */
 .blogs-body .card{
     background: rgb(250,250,250);

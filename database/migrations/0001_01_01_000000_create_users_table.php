@@ -23,7 +23,9 @@ return new class extends Migration
             $table->text('location');
             $table->text('Phone');
             $table->softDeletes();
-            $table->string('role')->default('user');
+            //$table->string('role')->default('user');
+            //$table->boolean('is_admin')->default('0');
+            $table->tinyInteger('role')->default('0');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

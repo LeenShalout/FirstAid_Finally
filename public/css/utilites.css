@@ -38,6 +38,10 @@ ul{
     border: #D22B2B 1px solid;
     box-shadow: none;
 }
+.blog-card{
+    grid-column: 1 / span 2;
+}
+
 /* category */
 .category-1,
 .category-2,
@@ -48,7 +52,16 @@ ul{
 .category-7{
     border-radius: 15px;
     width: fit-content;
+    /*padding: 0rem 1rem;*/
+}
+.blog-card p:first-child{
     padding: 0rem 1rem;
+}
+.category-padding{
+    padding: 0rem 1rem;
+}
+.category-select-padding{
+    padding: 1rem 1rem;
 }
 .category-1{
     background-color:#BAAFD7;

@@ -26,57 +26,71 @@ Blogs
 
 @section('content')
 
-         <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    <form>
-                        <!-- Your form elements here -->
-                        <div class="form-group">
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data" action="{{ route('AdminBlog.store') }}">
+                    @csrf
+                    <!-- Your form elements here -->
+                    <div class="form-group">
                         <label for="category">Category</label>
-                       <select class="form-control" id="category">
-                          <option>Pets </option>
-                          <option>Psyochological</option>
-                          <option>People with Special Needs</option>
-                          <option>Big Occasions</option>
-                          <option>Equipment</option>
-                          <option>Travel</option>
-                          <option>Food</option>
+                        <select class="form-control" id="category" name="Category">
+                            <option value="">Select Category</option>
+                            <option value="Pets">Pets</option>
+                            <option value="Psychological">Psychological</option>
+                            <option value="People with Special Needs">People with Special Needs</option>
+                            <option value="Big Occasions">Big Occasions</option>
+                            <option value="Equipment">Equipment</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Food">Food</option>
                         </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="fname">Title:</label>
-                            <input type="text" class="form-control" id="fname" name="fname" value="">
-                        </div>
-                        <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <label for="mainTitle">Main Title:</label>
+                        <input type="text" class="form-control" id="mainTitle" name="MainTitle" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="mainImg">Main Photo:</label>
+                        <input type="file" class="form-control-file" id="mainImg" name="MainImg">
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Summary:</label>
+                        <input type="text" class="form-control" id="summary" name="Summary" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" name="Title" value="">
+                    </div>
+                    <div class="form-group">
                         <label for="intro">Intro:</label>
-                        <textarea class="form-control" id="intro" name="intro" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
+                        <textarea class="form-control" id="intro" name="Intro" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="steps">Steps:</label>
-                        <textarea class="form-control" id="steps" name="steps" rows="3"></textarea>
-                        </div>
-                        <div class="form-group d-flex">
-    <div>
-    <label for="photo">Photo:</label>
-    <input type="file" class="form-control-file" id="photo" name="photo">
-</div>
-
-  </div>
-  <div class="form-group text-center">
-    <input type="submit" class="btn btn-primary btn-lg" value="Add">
-  </div>
-                    </form>
-                </div>
+                        <textarea class="form-control" id="steps" name="Steps" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Photo:</label>
+                        <input type="file" class="form-control-file" id="photo" name="Photo">
+                    </div>
+                    <div class="form-group">
+                        <label for="conclusion">Conclusion:</label>
+                        <textarea class="form-control" id="conclusion" name="Conclusion" rows="3"></textarea>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary btn-lg" value="Add">
+                    </div>
+                </form>
             </div>
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-      
-    </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->
 
 @endsection
+
 
 @section('scripts')
 <script src="{{asset('css.admin/plugins/jquery/jquery.min.js')}}"></script>

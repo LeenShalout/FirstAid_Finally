@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Workshop extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'description', 'photo','workshop_date','workshop_type'];
 }

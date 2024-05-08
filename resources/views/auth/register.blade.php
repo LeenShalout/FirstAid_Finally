@@ -67,8 +67,8 @@
         <span class="line">or register with</span>
 
             <div class="social-media d-flex justify-content-center">
-                <a href=""><img src="{{asset('Images/google.png')}}" class="social-media-img m-2" alt="..."></a>
-                <a href=""><img src="{{asset('Images/facebook.png')}}" class="social-media-img m-2" alt="..."></a>
+                <a href="https://accounts.google.com/v3/signin/identifier?ifkv=AaSxoQxHDbd24dAVxy6nNzrOk3lR9dQYueCf793imBi1fJKHiiNIDRNmpDjge_AvjMM043gx-YuS&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1845801778%3A1714854819045597&theme=mn&ddm=0"><img src="{{asset('Images/google.png')}}" class="social-media-img m-2" alt="..."></a>
+                <a href="https://www.facebook.com/login/"><img src="{{asset('Images/facebook.png')}}" class="social-media-img m-2" alt="..."></a>
             </div>
     </form>
 </x-guest-layout>

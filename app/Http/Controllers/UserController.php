@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MyUser;
+
+use App\Models\Auth;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-class MyUserController extends Controller
+use Illuminate\Support\Facades\Storage;
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users=MyUser::all();
-        return view('admin.users.users_view',compact(var_name:'users'));
+       
+        if(Auth()->user()->role=="admin"){
+            $users=User::all();
+            return view('admin.users.users_view',compact(var_name:'users'));
+        }
+        else {
+
+            return redirect()->route('users.index');
+
+        }
+       
     }
 
     /**
@@ -37,14 +48,15 @@ class MyUserController extends Controller
             'location'=>'required',
             'Phone'=>'required',
         ]);
-
+// dd($request->hasFile('img'));
         if ($request->hasFile('img')) {
             $imgName = $request->file('img')->getClientOriginalName();
             $request->file('img')->storeAs('public/image', $imgName);
         } else {
-            $imgName = 'default_image.jpg'; 
+            $imgName = 'default_image.png';
+           // $imgName=asset('css.admin/dist/img/default_image.png'); 
         }
-        $myUser=new MyUser();
+        $myUser=new User();
         $myUser->name=$request->name;
         $myUser->email=$request->email;
         $myUser->password=$request->password;
@@ -61,7 +73,7 @@ class MyUserController extends Controller
      */
     public function show()
     {
-        $users=MyUser::onlyTrashed()->get();
+        $users=User::onlyTrashed()->get();
         return view('admin.users.users_soft_delete',compact(var_name:'users'));
     }
 
@@ -70,7 +82,7 @@ class MyUserController extends Controller
      */
     public function edit($id)
     {
-        $user=MyUser::findOrFail($id);
+        $user=User::findOrFail($id);
         return view('admin.users.users_edit',compact(var_name:'user'));
     }
 
@@ -79,18 +91,44 @@ class MyUserController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $user=MyUser::findOrFail($id);
+        $user=User::findOrFail($id);
+     
+        // if ($request->hasFile('img')) {
+        //     $imgName = $request->file('img')->getClientOriginalName();
+        //     $request->file('img')->storeAs('public/image', $imgName);
+        // } 
+
+        if ($request->hasFile('img')){
+            if($user->img){
+                Storage::delete('public/image'.$user->img);
+            }
+            $imgPath=$request->file('img')->store('public/image');
+            $imgName=basename($imgPath);
+            $user->img=$imgName;
+        }
+      
+        
         $user->update([
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>$request->password,
-            'img'=>$request->img,
             'location'=>$request->location,
             'Phone'=>$request->Phone,
-            'role'=>$request->role
+            'role'=>$request->role,
+            
 
         ]);
-        return redirect()->route('users.index');
+
+        // if ($request->hasFile('img')=="true") {
+        //     $user->update([
+                
+            // ]);
+
+        // }
+     
+      
+  return redirect()->route('users.index');
+
     }
 
     /**
@@ -99,18 +137,18 @@ class MyUserController extends Controller
     public function destroy($id)
     {
 
-        MyUser::findOrFail($id)->delete();     
+        User::findOrFail($id)->delete();     
         return redirect()->route('users.index');
     }
 
     public function showDeletedUsers(){
 
-        $users=MyUser::whereNotNull('deleted_at')->get();
+        $users=User::whereNotNull('deleted_at')->get();
 return view('admin.users.users_soft_delete',compact('users'));
     }
 
     public function restore($id){
-        MyUser::withTrashed()->where('id',$id)
+        User::withTrashed()->where('id',$id)
        ->restore();
         return redirect()->route('users.index');
        // return view('admin.users.users_edit',compact(var_name:'id'));
@@ -118,7 +156,7 @@ return view('admin.users.users_soft_delete',compact('users'));
     
     public function forceDelete($id)
     {
-        MyUser::withTrashed()->where('id',$id)
+        User::withTrashed()->where('id',$id)
         ->forceDelete();
          return redirect()->route('users.index');
     }

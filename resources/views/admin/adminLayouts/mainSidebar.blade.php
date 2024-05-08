@@ -1,7 +1,7 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a class="brand-link">
       <img src="{{asset('css.admin/dist/img/aidhub1.png')}}" alt="AdminLTE Logo" style="opacity: .8" width="150">
       <!-- <span class="brand-text font-weight-light">AdminLTE 3</span> -->
     </a>
@@ -9,15 +9,32 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      @auth
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">  
         <div class="image">
-          <img src="{{asset('css.admin/dist/img/nadin.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img class="img-circle elevation-2" src="{{URL::asset("storage/image/".Auth::user()->img)}}" alt="{{Auth::user()->name}}" style="
+          height: 50px;
+          width: 50px;">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nadin Alhassan</a>
+          <h5 class="d-block">{{Auth::user()->name}}</h5>
         </div>
+        {{-- <div >
+        <br><br><a href="{{ route('logout') }}" style="background-color: #e13300; border-color: #e13300;color: white; " class="btn btn-primary float-left">Logout</a>
+        </div> --}}
+        <div>
+          <form method="POST" action="{{ route('logout') }}" style="display:inline ">
+            @csrf
+            @method('POST')
+            <br><br>
+            <button style="background-color: #e13300; border-color: #e13300;color: white;" class="btn btn-primary float-left" >
+                Logout
+            </button>
+        </form>
       </div>
-
+      </div>
+      
+      @endauth
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -54,7 +71,7 @@
 
               <p>
                Admin profile
-                <span class="badge badge-info right">2</span>
+               
               </p>
             </a>
           </li>
@@ -65,7 +82,7 @@
 
            
 
-            <a href="/admin/case" class="nav-link">
+            <a href="{{route('AdminCase.index')}}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
 
               <p>
@@ -74,7 +91,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/blog" class="nav-link">
+            <a href="{{route('AdminBlog.index')}}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Blog table
@@ -90,7 +107,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/workshop" class="nav-link">
+            <a href="{{route('Registered.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+               Registered table
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('AdminWorkshop.index')}}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Workshop table
@@ -117,7 +142,7 @@
            Forms
           </li>
           <li class="nav-item">
-            <a href="/admin/caseform" class="nav-link">
+            <a href="{{route('AdminCase.create')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Case form
@@ -125,10 +150,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/blogform" class="nav-link">
+            <a href="{{route('AdminBlog.create')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Blog form
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('AdminWorkshop.create')}}" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                Workshops form
               </p>
             </a>
           </li>
@@ -140,14 +173,15 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{route('logout')}}" class="nav-link">
+          {{-- <li class="nav-item">
+            <a href="{{route('admins.create')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-               Logout
+                Admins form
               </p>
             </a>
-          </li>
+          </li> --}}
+          <div>
           
       </nav>
       <!-- /.sidebar-menu -->

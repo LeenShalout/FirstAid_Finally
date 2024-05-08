@@ -31,7 +31,7 @@ Table
         <div class="container-fluid">
         <div class="card">
                 <div class="card-header"> 
-                    <a href="{{route('experiences.showDeletedExperiences')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Experiences</a> 
+                    {{-- <a href="{{route('experiences.showDeletedExperiences')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Experiences</a>  --}}
                  
                 </div>
                 <!-- /.card-header -->

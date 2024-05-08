@@ -34,10 +34,11 @@ Table
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+                    <div class="table-responsive">
                     <table id="example1" class="table table-bordered table-striped">
+                        <thead>
                        <tr>
-                                <th>Name</th>
-                                <th>Email</th>
+                             
                                 <th>Message</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
@@ -49,10 +50,8 @@ Table
                             
                             <tr>
 
-                               
-                                <td>{{$contact->Name}} </td>
+
                                 <td>{{$contact->Message}} </td>
-                                <td>{{$contact->Email}} </td>
                                 <td>{{$contact->created_at }}</td>
                                 <td>{{$contact->updated_at }}</td>
                             

@@ -31,6 +31,7 @@ Table
         <div class="card">
                 <!-- /.card-header -->
                 <div class="card-body">
+                    <div class="table-responsive">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -40,7 +41,7 @@ Table
                                 <th>Image</th>
                                 <th>Location</th>
                                 <th>Phone</th>
-                                <th>Date of Birth</th>
+                              
                                 <th>Action</th>
                             </tr>
                            

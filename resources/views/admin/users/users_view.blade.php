@@ -1,7 +1,7 @@
 @extends('admin.adminLayouts.masterPage')
 
 @section('title')
-Users Table
+Users/Admins Table
 @stop
 
 @section('admin')
@@ -39,6 +39,7 @@ Table
 
                 <!-- /.card-header -->
                 <div class="card-body">
+                    <div class="table-responsive">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -48,15 +49,14 @@ Table
                                 <th>Image</th>
                                 <th>Location</th>
                                 <th>Phone</th>
-                                <th>Date of Birth</th>
                                 <th>Action</th>
                             </tr>
                            
 
                             @foreach ($users as $user)
-                            
+                            @if ($user->role!="admin")
                             <tr>
-
+                                
                                
                                 <td>{{$user->name}} </td>
                                 <td>{{$user->email}} </td>
@@ -77,6 +77,7 @@ Table
                     
                         </td>
                     </tr>
+                    @endif
                     @endforeach
                         </thead>
                         <tbody>
@@ -84,21 +85,24 @@ Table
                         </tbody>
                     </table>
                 </div>
+                </div>
                 <!-- /.card-body -->
+
             </div>
             <!-- /.card -->
 
             <div class="card">
                 <div class="card-header">
 
-<a href="#" style="background-color: #e13300; border-color: #e13300; margin-right: 10px;" class="btn btn-primary float-right">Add Admin</a>
+<a href="{{ route('users.create') }}" style="background-color: #e13300; border-color: #e13300; margin-right: 10px;" class="btn btn-primary float-right">Add Admin</a>
 
-                    <a href="{{route('users.showDeletedUsers')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Admins</a> 
+                    
                
                 </div>
 
                 <!-- /.card-header -->
                 <div class="card-body">
+                    <div class="table-responsive">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -108,26 +112,26 @@ Table
                                 <th>Image</th>
                                 <th>Location</th>
                                 <th>Phone</th>
-                                <th>Date of Birth</th>
                                 <th>Action</th>
 
                             </tr>
                            
-
-                            @foreach ($users as $user)
-                            
+                            {{-- @if ($user->role=="admin") --}}
+                            @foreach ($users as $admin)
+                            {{-- {{dd($user->role);}} --}}
+                            @if ($admin->role=="admin")
                             <tr>
 
-                               @if ($user->role=="admin")
-                               <td>{{$user->name}} </td>
-                               <td>{{$user->email}} </td>
-                               <td>{{$user->password}} </td>
-                               <td><img src="{{URL::asset("storage/image/".$user->img)}}" alt="{{$user->img}}" style="width:75px; height:75px"> </td>
-                               <td>{{$user->location}} </td>
-                               <td>{{$user->Phone}} </td>
+                              
+                               <td>{{$admin->name}} </td>
+                               <td>{{$admin->email}} </td>
+                               <td>{{$admin->password}} </td>
+                               <td><img src="{{URL::asset("storage/image/".$admin->img)}}" alt="{{$admin->img}}" style="width:75px; height:75px"> </td>
+                               <td>{{$admin->location}} </td>
+                               <td>{{$admin->Phone}} </td>
                        <td>
-                           <a href="{{route('users.edit',$user->id)}}" style="color: #e13300;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                           <form method="POST" action="{{ route('users.destroy', $user->id) }}" style="display: inline;">
+                           <a href="{{route('users.edit',$admin->id)}}" style="color: #e13300;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                           <form method="POST" action="{{ route('users.destroy', $admin->id) }}" style="display: inline;">
                                @csrf
                                @method('DELETE')
                                <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;color: #e13300;">
@@ -136,15 +140,18 @@ Table
                            </form>
                    
                        </td>
-                               @endif
+                             
                                 
                     </tr>
+                                     @endif
                     @endforeach
+                    {{-- @endif --}}
                         </thead>
                         <tbody>
                             <!-- Table 1 rows go here -->
                         </tbody>
                     </table>
+                </div>
                 </div>
                 <!-- /.card-body -->
             </div>

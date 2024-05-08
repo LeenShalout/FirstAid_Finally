@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Models\MyCase;
+use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class MyCaseController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,13 +29,22 @@ class MyCaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $contact=new Contact();
+
+        Contact::create([
+            'Name' => $request->name,
+            'Email' => $request->email,
+            'Message' => $request->message,
+//            'user_id' => auth()->id()
+        ]);
+
+        return response('done');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(MyCase $myCase)
+    public function show(Contact $contact)
     {
         //
     }
@@ -42,7 +52,7 @@ class MyCaseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MyCase $myCase)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -50,7 +60,7 @@ class MyCaseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MyCase $myCase)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -58,7 +68,7 @@ class MyCaseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MyCase $myCase)
+    public function destroy(Contact $contact)
     {
         //
     }

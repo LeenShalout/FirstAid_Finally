@@ -1,7 +1,7 @@
 @extends('admin.adminLayouts.masterPage')
 
 @section('title')
-Edit Users
+Edit Users/Admins
 @stop
 
 @section('admin')
@@ -9,7 +9,7 @@ Edit
 @endsection
 
 @section('example')
-User
+User/ Admin
 @endsection
 
 @section('css')
@@ -30,36 +30,36 @@ User
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                        <form method="post" enctype="multipart/form-data" action="{{ route('users.update',$user->id) }}">
+                        <form enctype="multipart/form-data"  action="{{ route('users.update',$user->id) }}" method="post">
                             @method('PATCH')
                             @csrf
                         <!-- Your form elements here -->
                         <div class="form-group">
                             <label for="name">Username:</label>
-                            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Full Name">
+                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $user->name ?? '') }}" placeholder="Full Name">
                         </div>
                         <div class="form-group">
     <label for="exampleFormControlInput1">Email </label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
+    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com" value="{{ old('email', $user->email ?? '') }}">
   </div>
                         <div class="form-group">
                         <label for="dt">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" minlength="8" placeholder="Enter your Password">
+                        <input type="password" class="form-control" id="password" name="password" minlength="8" placeholder="Enter your Password"value="{{ old('password', $user->password ?? '') }}">
                         </div>
                         
                         <div class="form-group">
                             <label for="img">Image:</label>
-                            <input type="file" class="form-control-file" id="img" name="img" >
+                            <input type="file" class="form-control-file" id="img" name="img">
                             </div>
 
                             <div class="form-group">
                                 <label for="location">Location:</label>
-                                <input type="text" class="form-control" id="location" name="location" placeholder="Your Location">
+                                <input type="text" class="form-control" id="location" name="location" placeholder="Your Location" value="{{ old('location', $user->location ?? '') }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="Phone">Phone:</label>
-                                    <input type="text" class="form-control" id="Phone" name="Phone" placeholder="+962 000 000 000">
+                                    <input type="text" class="form-control" id="Phone" name="Phone" placeholder="+962 000 000 000" value="{{ old('Phone', $user->Phone ?? '') }}">
                                     </div>
 
 

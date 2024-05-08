@@ -1,11 +1,11 @@
 @extends('admin.adminLayouts.masterPage')
 
 @section('title')
-Users Form
+Users/ Admins Form
 @stop
 
 @section('admin')
-Users
+Users/ Admins
 @endsection
 
 @section('example')
@@ -17,7 +17,7 @@ Form
 @endsection
 
 @section('titlePage1')
-Users
+Users/ Admins
 @endsection
 
 @section('titlePage2')
@@ -31,7 +31,7 @@ Form
             <div class="card">
                 <div class="card-body">
                     
-                        <form method="post" action="{{ route('users.store') }}">
+                        <form enctype="multipart/form-data"  action="{{ route('users.store') }}" method="post" >
                             @csrf
                         <!-- Your form elements here -->
                         <div class="form-group">
@@ -42,12 +42,12 @@ Form
                          @enderror
                         </div>
                         <div class="form-group">
-    <label for="exampleFormControlInput1">Email </label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com" required>
-    @error('email')
-    <div class="alert alert-danger">{{ $message }}</div>
- @enderror
-  </div>
+                            <label for="exampleFormControlInput1">Email </label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com" required>
+                            @error('email')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        </div>
                         <div class="form-group">
                         <label for="dt">Password:</label>
                         <input type="password" class="form-control" id="password" name="password" minlength="8" placeholder="Enter your Password" required>
@@ -58,9 +58,12 @@ Form
                         
                         <div class="form-group">
                             <label for="img">Image:</label>
-                            <input type="file" class="form-control-file" id="img" name="img" >
+                            <input type="file" class="form-control-file" name="img" >
+                            @error('img')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror    
                             </div>
-
+{{-- <input type="text" name="ahmad" value="zytoon"> --}}
                             <div class="form-group">
                                 <label for="location">Location:</label>
                                 <input type="text" class="form-control" id="location" name="location" placeholder="Your Location" required>

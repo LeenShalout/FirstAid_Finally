@@ -10,4 +10,5 @@ class Experience extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $fillable=['Post','Img'];
 }

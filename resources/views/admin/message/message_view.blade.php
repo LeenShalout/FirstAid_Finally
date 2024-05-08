@@ -31,12 +31,13 @@ Table
         <div class="card">
                 <div class="card-header">
                     
-                    <a href="{{route('contacts.showDeletedContacts')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Contacts</a> 
+                    {{-- <a href="{{route('contacts.showDeletedContacts')}}" style="color: #e13300; text-decoration: underline;" >Show Deleted Contacts</a>  --}}
                    
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
+                        <thead>
                        <tr>
 
                                 <th>Message</th>
@@ -65,7 +66,12 @@ Table
                             </form>
                     
                         </td>
+                       
                     </tr>
+                    {{-- @empty
+                    <tr>
+                        <td colspan="13">No Contacts found.</td>
+                    </tr> --}}
                     @endforeach
                         </thead>
                            

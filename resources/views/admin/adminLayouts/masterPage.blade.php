@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
 
   @include('admin.adminLayouts.head')
 
@@ -33,7 +32,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#" style="color:#e13300">@yield('titlePage1')</a></li>
+              <li class="breadcrumb-item"><a style="color:#e13300">@yield('titlePage1')</a></li>
               <li class="breadcrumb-item active">@yield('titlePage2')</li>
             </ol>
           </div><!-- /.col -->
@@ -75,7 +74,7 @@
     //var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
     var areaChartData = {
-      labels  : ['Jordan', 'Egypt', 'Saudi Arabia', 'Syria'],
+      labels  : ['Cases', 'Blogs', 'Workshops', 'Experiences'],
       datasets: [
         {
           label               : '',
@@ -150,7 +149,7 @@
       datasets: [
         {
           data: [50,70,40],
-          backgroundColor : [ '#e13300', '#808080','#f09980' ],
+          backgroundColor : [ '#e13300', '#808080','#F8DFDB' ],
         }
       ]
     }

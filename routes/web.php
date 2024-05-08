@@ -5,73 +5,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{myProfileController,AuthController};
 use App\Http\Controllers\Auth\adminLoginController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\MyUserController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\MyCaseController;
+use App\Http\Controllers\Admin\WorkshopController;
+use App\Http\Controllers\Admin\RegisteredController;
+use App\Http\Controllers\User\UserExperienceController;
+use App\Http\Controllers\User\UserBlogController;
+use App\Http\Controllers\User\UserCaseController;
+use App\Http\Controllers\User\UserWorkshopController;
 
-Route::get('/', function () {
-    return view('index');
-})->name('indexUser');
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-// User Routes
-// Route::get('/', function () {
-//     return view('index');
-// });
-// Route::get('/cases', function () {
-//     return view('layouts.cases');
-// });
-// Route::get('/mainCases', function () {
-//     return view('layouts.mainCases');
-// });
-// Route::get('/blogs', function () {
-//     return view('layouts.blogs');
-// });
-// Route::get('/mainBlogs', function () {
-//     return view('mainBlogs');
-// });
-// Route::get('/workshop', function () {
-//     return view('workshop');
-// });
-// Route::get('/signup', function () {
-//     return view('signup');
-// });
-// Route::get('/login', function () {
-//     return view('login');
-// });
-// Route::get('/profile', function () {
-//     return view('profile');
-// });
-
-
-// Route::get('/forum', function () {
-//     return view('forum');
-// });
-
-
-
-// Route::get('/workshop', function () {
-//     return view('workshop');
-// });
 
 
 
@@ -85,38 +31,7 @@ Route::get('/admin/ca', function () {
 
 Route::get('/admin/profile', [myProfileController::class, "myProfile"])->name('myProfile');
 
-//Route::get('/admin/login', [AuthController::class, "getLogin"])->name('getLogin');
-//Route::post('/admin/login', [AuthController::class, "postLogin"])->name('postLogin');
 
-
-
-Route::get('/admin/case', function () {
-    return view('admin/case/case_view');
-});
-Route::get('/admin/blog', function () {
-    return view('admin/blog/blog_view');
-});
-//Route::get('/admin/message', function () {
-   // return view('admin/message/message_view');
-//});
-Route::get('/admin/workshop', function () {
-    return view('admin/workshop/workshop_view');
-});
-//Route::get('/admin/users', function () {
-    //return view('admin/users/users_view');
-//});
-//Route::get('/admin/feedback', function () {
-  //  return view('admin/feedback/feedback_view');
-//});
-Route::get('/admin/blogform', function () {
-    return view('admin/blog/blog_create');
-});
-Route::get('/admin/caseform', function () {
-    return view('admin/case/case_create');
-});
-//Route::get('/admin/usersform', function () {
-    //return view('admin/users/users_create');
-//});
 
 Route::resource(name:'contacts', controller:ContactController::class);
 
@@ -124,14 +39,16 @@ Route::get('contacts/forcedelete/{id}',[ContactController::class,'forceDelete'])
 
 Route::get('contacts/restore/{id}',[ContactController::class,'restore'])->name(name:'contacts.restore');
 
-Route::resource(name:'users', controller:MyUserController::class);
-Route::get('users/showDeletedUsers',[MyUserController::class,'showDeletedUsers'])->name(name:'users.showDeletedUsers');
+Route::resource(name:'users', controller:UserController::class);
+Route::get('users/showDeletedUsers',[UserController::class,'showDeletedUsers'])->name(name:'users.showDeletedUsers');
 Route::get('contacts/showDeletedContacts',[ContactController::class,'showDeletedContacts'])->name(name:'contacts.showDeletedContacts');
 Route::get('experiences/showDeletedContacts',[ExperienceController::class,'showDeletedExperiences'])->name(name:'experiences.showDeletedExperiences');
 
-Route::get('users/restore/{id}',[MyUserController::class,'restore'])->name(name:'users.restore');
+Route::get('users/restore/{id}',[UserController::class,'restore'])->name(name:'users.restore');
 
-Route::get('users/forcedelete/{id}',[MyUserController::class,'forceDelete'])->name(name:'users.forcedelete');
+Route::get('users/forcedelete/{id}',[UserController::class,'forceDelete'])->name(name:'users.forcedelete');
+
+Route::resource(name:'admins', controller:AdminProfileController::class);
 
 Route::resource(name:'experiences', controller:ExperienceController::class);
 
@@ -142,13 +59,83 @@ Route::get('experiences/restore/{id}',[ExperienceController::class,'restore'])->
 Route::get('adminLogin', [adminLoginController::class, 'create'])
 ->name('adminLogin');
 Route::post('adminLogin', [adminLoginController::class, 'store']);
-Route::middleware(['auth','verified','admin'])->group(function () {
 
-Route::get('/admin/dashboard', [AdminProfileController::class, "dashboard"])->name('dashboard');
+//Route::middleware(['auth','is_admin'])->group(function(){
+
+   // Route::get('/admin/dashboard', [AdminProfileController::class, "dashboard"])->name('dashboard');
+
+//});
+
+Route::middleware([])->group(function () {
+
+Route::get('/admin/dashboard', [AdminDashboardController::class, "dashboard"])->name('dashboard');
 
 
 });
 
+
+// User Routes
+Route::get('/', function () {
+    return view('user/index');
+})->name('indexUser');
+// Cases
+Route::get('/mainCases/{category}',[UserCaseController::class,'userIndex'])->name('mainCases');
+Route::get('/cases/{id}',[UserCaseController::class,'userCase'])->name('cases');
+
+//Blogs
+Route::get('/blogs/{id}',[UserBlogController::class,'blogIndex'])->name('blogs');
+Route::get('/mainBlogs',[UserBlogController::class,'index'])->name('mainBlogs');
+Route::get('/mainBlogs/{category}',[UserBlogController::class,'sort'])->name('mainBlogs');
+
+
+
+Route::get('/signup', function () {
+    return view('user/signup');
+});
+Route::get('/login', function () {
+    return view('user/login');
+});
+Route::get('/profile', function () {
+    return view('user/profile');
+});
+Route::get('/forum', function () {
+    return view('user/forum');
+});
+
+//Experience
+Route::resource('experience',UserExperienceController::class);
+Route::get('/experienceAllPosts',[UserExperienceController::class, 'index'] );
+Route::get('/experienceLatest',[UserExperienceController::class, 'latestPosts'] );
+Route::get('experienceMyPostsDelete/{id}',[UserExperienceController::class,'destroy'])->name('experience.delete');
+Route::get('experienceMyPostsEdit/{id}',[UserExperienceController::class,'edit'])->name('experience.edit');
+Route::get('experienceMyPosts',[UserExperienceController::class,'myPosts']);
+
+
+
+
+Route::resource('experience',UserExperienceController::class);
+
+Route::resource('contact',ContactController::class);
+
+Route::resource('workshop',UserWorkshopController::class);
+
+
+
+
+
+// **************************************
+
+// Admin Routes
+
+////////////////
+
+Route::resource('/AdminCase', MyCaseController::class);
+Route::resource('/AdminBlog', BlogController::class);
+Route::resource('/Registered', RegisteredController::class);
+Route::resource('/AdminWorkshop', WorkshopController::class);
+
+
+////////////
 
 
 require __DIR__.'/auth.php';

@@ -57,7 +57,7 @@ Dashboard
           <!-- STACKED BAR CHART -->
           <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title" style="color: black;">Most Countries</h3>
+              <h3 class="card-title" style="color: black;">Most Visited</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" style="color: black;">
@@ -89,7 +89,7 @@ Dashboard
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-           <h3 style="color: #e13300;">150</h3>
+           <h3 style="color: #e13300;">{{$userCount}}</h3>
 
 
             <h4 style="color: black;">Users</h4>
@@ -98,7 +98,7 @@ Dashboard
             <i class="ion ion-person"></i>
 
           </div>
-          <a href="#" class="small-box-footer" >More info <i class="fas fa-arrow-circle-right"></i></a>
+          {{-- <a href="#" class="small-box-footer" >More info <i class="fas fa-arrow-circle-right"></i></a> --}}
         </div>
       </div>
       <!-- ./col -->
@@ -106,7 +106,7 @@ Dashboard
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3 style="color: #e13300;">200</h3>
+            <h3 style="color: #e13300;">{{$casesCount}}</h3>
 
             <h4 style="color: black;">Cases</h4>
           </div>
@@ -115,7 +115,7 @@ Dashboard
 
 
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
         </div>
       </div>
       <!-- ./col -->
@@ -132,7 +132,7 @@ Dashboard
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-           <h3 style="color: #e13300;">#</h3>
+           <h3 style="color: #e13300;">{{$blogsCount}}</h3>
 
 
             <h4 style="color: black;">Blog</h4>
@@ -141,7 +141,7 @@ Dashboard
             <i class="fas fa-blog"></i>
 
           </div>
-          <a href="#" class="small-box-footer" >More info <i class="fas fa-arrow-circle-right"></i></a>
+          {{-- <a href="#" class="small-box-footer" >More info <i class="fas fa-arrow-circle-right"></i></a> --}}
         </div>
       </div>
       <!-- ./col -->
@@ -149,7 +149,7 @@ Dashboard
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3 style="color: #e13300;">#</h3>
+            <h3 style="color: #e13300;">{{$workshopCount}}</h3>
 
             <h4 style="color: black;">Workshop</h4>
           </div>
@@ -158,7 +158,7 @@ Dashboard
 
 
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
         </div>
       </div>
       <!-- ./col -->

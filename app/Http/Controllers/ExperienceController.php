@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Experience;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class ExperienceController extends Controller
 {
     /**
@@ -12,8 +12,16 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        $experiences=Experience::all();
-        return view('admin.feedback.feedback_view', compact(var_name:'experiences'));
+        if(Auth::user()->role=="admin"){
+            $experiences=Experience::all();
+            return view('admin.feedback.feedback_view', compact(var_name:'experiences'));
+        }
+        else {
+
+            return view('index');
+
+        }
+       
     }
 
     /**

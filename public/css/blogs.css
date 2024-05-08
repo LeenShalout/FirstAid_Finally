@@ -6,14 +6,13 @@ background-color: #FDF8F4;
 }
 .blogs-img img{
 max-width: 100%;
-/* height: 100%; */
+ height: 100%;
 }
 
-/* .blogs-img{
+.blogs-img{
     width: 100%;
-    margin: 0 auto;
   }
-
+/*
   .blogs-img img {
     width: 100%;
   } */
@@ -50,10 +49,10 @@ font-weight: 900;
 #footer svg{
 fill: #FDF8F4;
 }
-
-
-
-
+.category-list li,
+.category-list p{
+    margin: 10px;
+}
 
 
 

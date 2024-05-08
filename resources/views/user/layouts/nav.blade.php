@@ -41,11 +41,23 @@
                     </li>
                 </ul>
             </div>
-
+            @if(Auth::user())
+            <h4 class="d-block"style="color: #828583;" >Welcome {{Auth::user()->name}}</h4>&nbsp;&nbsp;
+           
+            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                @csrf
+                @method('POST')
+                <button style="background-color: #e13300; border-color: #e13300;color: white;  float: left;" class="btn btn-outline-primary" >
+                    Logout
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </form>
+            @else
             <div class="signup">
-                <button class="btn btn-outline-primary"><a href="/signup">Sign Up </a><i
+                <button class="btn btn-outline-primary"><a href="{{route('login')}}">Sign In </a><i
                         class="bi bi-person-fill"></i></button>
             </div>
+            @endif
 
         </div>
     </nav>

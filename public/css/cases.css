@@ -19,6 +19,9 @@ color: #333;
 .entry-content .entry-title a:hover {
 color: #D22B2B;
 }
+li.active {
+    color: #D22B2B;
+}
 
 .entry-content .entry-meta span {
 font-size: 12px;

@@ -1,7 +1,7 @@
 @extends('admin.adminLayouts.masterPage')
 
 @section('title')
-Blog Table
+Blogs Table
 @stop
 
 @section('admin')
@@ -21,69 +21,91 @@ Tables
 @endsection
 
 @section('titlePage2')
-Blogs
+blogs
 @endsection
+
+@extends('admin.adminLayouts.masterPage')
+
+@section('title', 'Blog Management')
 
 @section('content')
-
-            
-      
-      <!-- Main content -->
-      <div class="content">
-          <div class="container-fluid">
-          <div class="card">
-                  <div class="card-header">
-                      
-                      <a href="/admin/blogform" style="background-color:#ff0000;" class="btn btn-primary float-right">Add Blog</a>
-                      
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body">
-                      <table id="example1" class="table table-bordered table-striped">
-                          <thead>
-                              <tr>
-                                  <th>Category</th>
-                                  <th>Title</th>
-                                  <th>Date of publication</th>
-                                  <th>Last edit</th>
-                                  <th>intro</th>
-                                  <th>Steps</th>
-                                  <th>Photo</th>
-                                  <th>Action</th>
-                              </tr>
-                              <td> Pets</td>
-                              <td> Blog 1</td>
-                              <td> Jan.14.2024 </td>
-                              <td> Apr.1.2024</td>
-                              <td>ljhgbm,...bfgbnml</td>
-                              <td>1.kkhgbbbb
-                                  2.kookkmmm
-                                  3.jbbvvvvv
-                              </td>
-                              <td>leen.jpg</td>
-                          <td>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                          </td>
-                      </tr>
-                          </thead>
-                          <tbody>
-                              <!-- Table 1 rows go here -->
-                          </tbody>
-                      </table>
-                  </div>
-                  <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-          </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content -->
-      
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <a href="{{route('AdminBlog.create')}}" class="btn btn-primary float-right" style="background-color: #ff0000;">Add Blog</a>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body" style="overflow-x: scroll">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Main Title</th>
+                                <th>Main Photo</th>
+                                <th>Summary</th>
+                                <th>Title</th>
+                                <th>Intro</th>
+                                <th>Steps</th>
+                                <th>Photo</th>
+                                <th>Conclusion</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($blogs as $blog)
+                                <tr>
+                                    <td>{{ $blog->Category }}</td>
+                                    <td>{{ $blog->MainTitle }}</td>
+                                    <td><img src="{{ asset("storage/image/$blog->MainImg") }}" alt="{{ $blog->MainImg }}" style="width: 75px; height: 75px;"></td>
+                                    <td>{{ $blog->Summary }}</td>
+                                    <td>{{ $blog->Title }}</td>
+                                    <td>{{ $blog->Intro }}</td>
+                                    <td>{{ $blog->Steps }}</td>
+                                    <td><img src="{{ asset("storage/image/$blog->Photo") }}" alt="{{ $blog->Photo }}" style="width: 75px; height: 75px;"></td>
+                                    <td>{{ $blog->Conclusion }}</td>
+                                    <td>
+                                        <!-- Edit Button -->
+                                        <a href="{{ route('AdminBlog.edit', $blog->id) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Edit">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                        <!-- Delete Form -->
+                                        <form action="{{ route('AdminBlog.destroy', $blog->id) }}" method="post" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Delete">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="13">No blogs found.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div><!-- /.container-fluid -->
     </div>
-
+    <!-- /.content -->
 @endsection
 
+
 @section('scripts')
+<script src="{{asset('css.admin/plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('css.admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
 <script src="{{asset('css.admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('css.admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -118,15 +140,12 @@ Blogs
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('css.admin/dist/js/pages/dashboard.js')}}"></script>
 <!-- Page specific script -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"-->
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-
 </body>
 </html>
 @endsection

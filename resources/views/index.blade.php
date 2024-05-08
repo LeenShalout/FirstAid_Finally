@@ -18,6 +18,11 @@
 @section('content')
     <div class="body-container">
         {{-- Home Section --}}
+        {{-- @if(Auth::user())
+        <a href="#" class="d-block">{{Auth::user()->name}}</a>
+        @else
+        <a href="#" class="d-block">No User</a>
+        @endif --}}
         <section id="home">
             <div class="container text-center pt-3 col-md-12">
                 <div class="d-md-flex justify-content-md-between align-items-md-center row">

@@ -19,7 +19,8 @@ body{
 .pagination li a:focus{
     color: #D22B2B;
 }
-.pagination a:focus{
+.pagination a:focus,
+.modal-header .btn-close{
     box-shadow: none;
 }
 .active > .page-link{
@@ -44,6 +45,10 @@ body{
 .input-icon input:focus,
 .form-group textarea:focus{
     border: #D22B2B 1px solid;
+    box-shadow: none;
+}
+.img-upload input:focus{
+    border: #DEE2E6 1px solid;
     box-shadow: none;
 }
 .inner-main,
@@ -157,8 +162,26 @@ body{
     padding: 1rem;
 }
 .modal-body{
-    height: 10rem;
+    height: 15rem;
 }
 #footer svg{
     fill: #FAFAFA;
+}
+.dropdown-item{
+    width: 80%;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+.dropdown-item:focus{
+    background-color: #D22B2B;
+}
+
+/* Edit Experience */
+.modal-content {
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+.modal-body{
+    height: auto;
 }

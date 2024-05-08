@@ -24,62 +24,75 @@ Tables
 Cases
 @endsection
 
-@section('content')
+@extends('admin.adminLayouts.masterPage')
 
-            
-      
-          <!-- Main content -->
+@section('title', 'Case Management')
+
+@section('content')
+    <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-        <div class="card">
+            <div class="card">
                 <div class="card-header">
-                    
-                    <a href="/admin/caseform" style="background-color:#ff0000;" class="btn btn-primary float-right">Add Case</a>
-                    
+                    <a href="{{route('AdminCase.create')}}" class="btn btn-primary float-right" style="background-color: #ff0000;">Add Case</a>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body">
+                <div class="card-body" style="overflow-x: scroll">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Category</th>
-                                <th>Title</th>>
-                                <th>Date of publication</th>
-                                <th>Last edit</th>
-                                <th>intro</th>
+                                <th>Title</th>
+                                <th>Main Photo</th>
+                                <th>Description</th>
+                                <th>Intro</th>
                                 <th>Signs</th>
                                 <th>Treatment Procedures</th>
                                 <th>Prevention Tips</th>
+                                <th>Before</th>
+                                <th>During</th>
+                                <th>After</th>
                                 <th>Photo</th>
-                                <th>video</th>
+                                <th>Video</th>
                                 <th>Action</th>
                             </tr>
-                            <td> Human body</td>
-                            <td> Case 1</td>
-                            <td> Jan.14.2024 </td>
-                            <td> Apr.1.2024</td>
-                            <td>ljhgbm,...bfgbnml</td>
-                            <td>1.kkhgbbbb
-                                2.kookkmmm
-                                3.jbbvvvvv
-                            </td>
-                            <td>1.kkhgbbbb
-                                2.kookkmmm
-                                3.jbbvvvvv
-                            </td>
-                            <td>1.kkhgbbbb
-                                2.kookkmmm
-                            </td>
-                            <td>leen.jpg</td>
-                            <td>ghk.hjkl.n</td>
-                        <td>
-                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
                         </thead>
                         <tbody>
-                            <!-- Table 1 rows go here -->
+                            @forelse($cases as $case)
+                                <tr>
+                                    <td>{{ $case->Category }}</td>
+                                    <td>{{ $case->Title }}</td>
+                                    <td><img src="{{ asset("storage/image/$case->MainPhoto") }}" alt="{{ $case->MainPhoto }}" style="width: 75px; height: 75px;"></td>
+                                    <td>{{ $case->Description }}</td>
+                                    <td>{{ $case->Intro }}</td>
+                                    <td>{{ $case->Signs }}</td>
+                                    <td>{{ $case->Treatment_Procedures }}</td>
+                                    <td>{{ $case->Prevention_Tips }}</td>
+                                    <td>{{ $case->Before }}</td>
+                                    <td>{{ $case->During}}</td>
+                                    <td>{{ $case->After}}</td>
+                                    <td><img src="{{ asset("storage/image/$case->Photo") }}" alt="{{ $case->Photo }}" style="width: 75px; height: 75px;"></td>
+                                    <td>{{ $case->Video }}</td>
+                                    <td>
+                                        <!-- Edit Button -->
+                                        <a href="{{ route('AdminCase.edit', $case->id) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Edit">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                        <!-- Delete Form -->
+                                        <form action="{{ route('AdminCase.destroy', $case->id) }}" method="post" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Delete">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="13">No cases found.</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -89,12 +102,18 @@ Cases
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
-      
-    </div>
-
 @endsection
 
+
 @section('scripts')
+<script src="{{asset('css.admin/plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('css.admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
 <script src="{{asset('css.admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('css.admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -129,15 +148,7 @@ Cases
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('css.admin/dist/js/pages/dashboard.js')}}"></script>
 <!-- Page specific script -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"-->
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"-->
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

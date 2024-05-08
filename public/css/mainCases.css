@@ -18,7 +18,12 @@ body{
 }
 .cases-container .card{
     height: 400px;
-    background: url('/Images/bleeding.jpg') no-repeat top center/cover;
+    /*background: url('/Images/bleeding.jpg') no-repeat top center/cover;*/
+    /*background: url('<?= (isset($case->Photo))?asset('images/') . $case->Photo ?>') no-repeat top center/cover;*/
+
+    /*background-position: top;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
     border-radius: 20px;
     overflow: hidden;
     /* display: flex;
