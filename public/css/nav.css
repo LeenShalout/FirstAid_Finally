@@ -33,6 +33,16 @@
 border: #D22B2B 1px solid;
 box-shadow: none;
 }
+.dropdown-item{
+    width: 80%;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+.dropdown-item:focus{
+    background-color: #D22B2B;
+}
+
 @media(max-width: 768px){
     .navbar-nav{
         display: flex;

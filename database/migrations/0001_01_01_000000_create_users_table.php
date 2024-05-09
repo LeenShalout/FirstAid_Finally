@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('img')->nullable();
+            $table->string('img')->default("profile.jpg");
             $table->text('location');
             $table->text('Phone');
             $table->softDeletes();

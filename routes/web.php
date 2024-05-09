@@ -95,7 +95,7 @@ Route::get('/signup', function () {
 Route::get('/login', function () {
     return view('user/login');
 });
-Route::get('/profile', function () {
+Route::get('profile', function () {
     return view('user/profile');
 });
 Route::get('/forum', function () {

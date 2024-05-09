@@ -4,8 +4,8 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-        <h4 class="text-center" style="font-size: 1.4rem; font-weight: 600;">Welcome Back</h4>
-         
+        <h4 class="text-center" style="font-size: 1.4rem; font-weight: 600;">Welcome</h4>
+
         <!-- Email Address -->
         <div class="mb-3"> <!-- Added margin-bottom class -->
             <x-input-label for="email" class="form-label" :value="__('Email Address')" />
@@ -26,33 +26,26 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-between mt-3"> <!-- Reduced top margin -->
-            <!-- Remember Me -->
-            {{-- <div class="block"> <!-- Removed margin-top class -->
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800 mr-2"> <!-- Adjusted margin -->
-                    <span class="gray">{{ __('Remember me') }}</span> <!-- Removed margin classes -->
-                </label>
-                
-            </div> --}}
+        <div class="d-flex flex-column mt-3"> <!-- Reduced top margin -->
+
 
             <div class="flex items-center justify-between mt-3">
-                <a class="mt-3 mb-3 gray d-flex justify-content-start" href="{{ route('register') }}">
+                <a class="gray d-flex justify-content-start" href="{{ route('register') }}">
                     {{ __('Do not have an account?') }}
                 </a>
             </div>
-            
+
             <!-- Forget password? -->
-            <div class="flex items-center justify-between mt-3"> <!-- Removed margin classes -->
+            <div class="my-3 flex items-center justify-between"> <!-- Removed margin classes -->
                 @if (Route::has('password.request'))
-                
+
                     <a class="gray" href="{{ route('password.request') }}">
                         {{ __('Forget password?') }}
                     </a>
                 @endif
             </div>
         </div>
-        
+
         <div class="d-flex justify-content-center"> <!-- Reduced top margin -->
             <x-primary-button  class="btn btn-primary"> <!-- Apply red background color -->
                 {{ __('Log in') }}
@@ -65,12 +58,12 @@
                 <a href="https://accounts.google.com/v3/signin/identifier?ifkv=AaSxoQxHDbd24dAVxy6nNzrOk3lR9dQYueCf793imBi1fJKHiiNIDRNmpDjge_AvjMM043gx-YuS&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1845801778%3A1714854819045597&theme=mn&ddm=0"><img src="{{asset('Images/google.png')}}" class="social-media-img m-2" alt="..."></a>
                 <a href="https://www.facebook.com/login/"><img src="{{asset('Images/facebook.png')}}" class="social-media-img m-2" alt="..."></a>
             </div>
-        
-  
+
+
     </form>
 </x-guest-layout>
 
-        
 
-         
-           
+
+
+
