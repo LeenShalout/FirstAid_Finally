@@ -67,10 +67,40 @@ Blogs
                         <label for="intro">Intro:</label>
                         <textarea class="form-control" id="intro" name="Intro" rows="3"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="steps">Steps:</label>
-                        <textarea class="form-control" id="steps" name="Steps" rows="3"></textarea>
-                    </div>
+                    <div class="form-group ">
+                    <div class="row containera containerb">
+        
+                            <div class="col-sm-12">
+                            <!-- text input -->
+                                <div class="form-group">
+                                    <label>Steps</label>
+                                    <input type="text" name="Steps0" class="form-control" placeholder="Enter Steps ...">
+                                </div>
+                            </div> 
+                            <div class="col-sm-12">
+                                <!-- text input -->
+                                    <div class="form-group">
+                                        <label>dis</label>
+                                        <input type="text" name="dis0" class="form-control" placeholder="Enter dis ...">
+                                    </div>
+                                </div> 
+                      </div> 
+                    {{-- <div class="row ">
+        
+                            
+                      </div>  --}}
+        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <button type="button" class="add_form_field btn btn-primary">Add New Field &nbsp; 
+                                        <span style="font-size:16px; font-weight:bold;">+</span>
+                                    </button>       
+                                </div>
+                            </div>
+                         </div>           
+         </div>
+
                     <div class="form-group">
                         <label for="photo">Photo:</label>
                         <input type="file" class="form-control-file" id="photo" name="Photo">
@@ -93,6 +123,42 @@ Blogs
 
 
 @section('scripts')
+<script> 
+  $(document).ready(function() {
+    var max_fields = 30;
+    var count =0;
+    var wrappera = $(".containera");
+    var wrapperb = $(".containerb");
+    var add_button = $(".add_form_field");
+
+    var x = 1;
+    $(add_button).click(function(e) {
+        e.preventDefault();
+        if (x < max_fields) {
+            x++;
+            a=`<div class='col-sm-12'><div class='form-group'><label>Steps</label><input type='text' name='Steps${++count}' class='form-control' placeholder='Enter Lable ...'><a href="#" class="delete">Delete</a> 
+            </div></div>`;
+            b=`<div class='col-sm-12'><div class='form-group'><label>dis</label><input type='text' name='dis${count}' class='form-control' placeholder='Enter Lable ...'><a href="#" class="delete">Delete</a>        <input name="count" type="hidden" value="${count}">
+            </div></div>`;
+            $(wrappera).append(a);
+            $(wrapperb).append(b);
+                      
+                      //add input box
+        } else {
+        alert('You Reached the limits')
+        }   
+    });   
+
+    $(wrapper).on("click", ".delete", function(e) { 
+        e.preventDefault(); 
+        $(this).parent('div').remove(); 
+        x--; 
+        count--;
+    }) 
+}); 
+
+</script>
+
 <script src="{{asset('css.admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('css.admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -131,3 +197,5 @@ Blogs
 </body>
 </html>
 @endsection
+
+

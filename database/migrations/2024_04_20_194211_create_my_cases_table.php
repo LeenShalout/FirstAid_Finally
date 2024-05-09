@@ -13,14 +13,19 @@ return new class extends Migration
     {
         Schema::create('my_cases', function (Blueprint $table){
             $table->id();
+            $table->string('MainPhoto');
+            $table->text('Description');
             $table->string('Category');
             $table->string('Title');
             $table->text('Intro');
-            $table->text('Signs');
-            $table->text('Treatment_Procedures');
-            $table->text('Prevention_Tips');
-            $table->text('Photo');  
-            $table->text('Video');
+            $table->text('Signs')->nullable();
+            $table->text('Treatment_Procedures')->nullable();
+            $table->text('Prevention_Tips')->nullable();
+            $table->text('Before')->nullable();
+            $table->text('During')->nullable();
+            $table->text('After')->nullable();
+            $table->string('Photo');
+            $table->string('Video')->nullable();
             $table->timestamps();
         });
 		
