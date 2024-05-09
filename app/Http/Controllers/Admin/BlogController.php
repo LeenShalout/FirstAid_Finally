@@ -12,10 +12,10 @@ class BlogController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-  {
-    $blogs = Blog::all();
-    return view('admin.blog.blog_view', compact('blogs'));
-  }
+    {
+        $blogs = Blog::all();
+        return view('admin.blog.blog_view', compact('blogs'));
+    }
 
 
     /**
@@ -42,20 +42,45 @@ class BlogController extends Controller
             // Add validation for the video file if needed
         ]);
 
+        // Store the uploaded photo
         $photo_name = $request->file('Photo')->getClientOriginalName();
         $request->file('Photo')->storeAs('public/image', $photo_name);
 
-        $Main_Img = $request->file('MainImg')->getClientOriginalName();
-        $request->file('MainImg')->storeAs('public/image', $Main_Img);
+        // Store the uploaded main image
+        $main_img_name = $request->file('MainImg')->getClientOriginalName();
+        $request->file('MainImg')->storeAs('public/image', $main_img_name);
 
+        $steps = [];
+        $count = $request->input('count'); // Get the total number of steps
+
+
+        for ($i = 0; $i <= $count; $i++)
+        {
+            $step_key = 'Steps' . $i;
+            $dis_key = 'dis' . $i;
+
+
+            if ($request->has($step_key) && $request->has($dis_key)) {
+                $step = $request->input($step_key);
+                $description = $request->input($dis_key);
+
+
+                $steps[] = ['step' => $step, 'description' => $description];
+            }
+
+        }
+
+        // Create a new Blog instance
         $blog = new Blog();
         $blog->Category = $request->Category;
         $blog->MainTitle = $request->MainTitle;
         $blog->Title = $request->Title;
-        $blog->MainImg = $Main_Img;
+        $blog->MainImg = $main_img_name;
         $blog->Summary = $request->Summary;
         $blog->Intro = $request->Intro;
-        $blog->Steps = $request->Steps;
+
+        $blog->Steps = json_encode($steps);
+
         $blog->Photo = $photo_name;
         $blog->Conclusion = $request->Conclusion;
         $blog->save();
@@ -84,76 +109,38 @@ class BlogController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    $blog = Blog::findOrFail($id);
+    {
+        $blog = Blog::findOrFail($id);
 
-    $request->validate([
-        'Category' => 'required',
-        'Title' => 'required|unique:blogs,Title,' . $id, // Use unique validation excluding the current blog's ID
-        'MainTitle' => 'required|unique:blogs,MainTitle,' . $id, // Use unique validation excluding the current blog's ID
-        'Photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Make Photo field nullable
-        'MainImg' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Make MainImg field nullable
-    ]);
         $request->validate([
             'Category' => 'required',
-            'Title' => 'required|unique:my_cases|max:255',
-            'MainTitle' => 'required|unique:my_cases|max:255',
-            'Photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'MainImg' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-
+            'Title' => 'required|unique:blogs,Title,' . $id,
+            'MainTitle' => 'required|unique:blogs,MainTitle,' . $id,
+            'Photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'MainImg' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($request->hasFile('Photo')) {
-            $photo_name = $request->file('Photo')->getClientOriginalName();
-            $request->file('Photo')->storeAs('public/image', $photo_name);
-            $case->Photo = $photo_name;
+            $photo_name = $request->file('Photo')->store('public/image');
+            $blog->Photo = $photo_name;
         }
 
         if ($request->hasFile('MainImg')) {
-            $Main_Img = $request->file('MainImg')->getClientOriginalName();
-            $request->file('MainImg')->storeAs('public/image', $Main_Img);
-            $case->MainImg = $Main_Img;
+            $main_img_name = $request->file('MainImg')->store('public/image');
+            $blog->MainImg = $main_img_name;
         }
 
-        // Update other fields
         $blog->Category = $request->Category;
         $blog->MainTitle = $request->MainTitle;
         $blog->Title = $request->Title;
         $blog->Summary = $request->Summary;
         $blog->Intro = $request->Intro;
-        $blog->Steps = $request->Steps;
+        $blog->Steps = $request->Steps; // Ensure proper handling of steps input
         $blog->Conclusion = $request->Conclusion;
         $blog->save();
 
-        return redirect()->route('AdminBlog.index')->with('success', "Blog Updated successfully");
-
-    // Handle Photo file upload
-    if ($request->hasFile('Photo')) {
-        $photo_name = $request->file('Photo')->getClientOriginalName();
-        $request->file('Photo')->storeAs('public/image', $photo_name);
-        $blog->Photo = $photo_name;
+        return redirect()->route('AdminBlog.index')->with('success', 'Blog updated successfully');
     }
-
-    // Handle MainImg file upload
-    if ($request->hasFile('MainImg')) {
-        $main_img_name = $request->file('MainImg')->getClientOriginalName();
-        $request->file('MainImg')->storeAs('public/image', $main_img_name);
-        $blog->MainImg = $main_img_name;
-    }
-
-    // Update other fields
-    $blog->Category = $request->Category;
-    $blog->MainTitle = $request->MainTitle;
-    $blog->Title = $request->Title;
-    $blog->Summary = $request->Summary;
-    $blog->Intro = $request->Intro;
-    $blog->Steps = $request->Steps;
-    $blog->Conclusion = $request->Conclusion;
-    $blog->save();
-
-    return redirect()->route('AdminBlog.index')->with('success', "Blog Updated successfully");
-}
-
 
     /**
      * Remove the specified resource from storage.
