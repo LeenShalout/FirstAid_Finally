@@ -74,9 +74,17 @@ class UserProfileController extends Controller
         $user->birthday = $request->birthday;
 
         if ($request->hasFile('img')) {
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/image', $imageName);
+            if ($user->img) {
+                Storage::delete('public/image/' . $user->img);
+            }
+
+            // Upload the new image
+            $imagePath = $request->file('img')->store('public/image');
+
+            // Get the image name
+            $imageName = basename($imagePath);
+
+            // Update the image path in the database
             $user->img = $imageName;
         }
 
