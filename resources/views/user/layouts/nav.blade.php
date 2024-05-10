@@ -42,16 +42,46 @@
                 </ul>
             </div>
             @if(Auth::user())
-            <h4 class="d-block"style="color: #828583;" >Welcome {{Auth::user()->name}}</h4>&nbsp;&nbsp;
-           
-            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                @csrf
-                @method('POST')
-                <button style="background-color: #e13300; border-color: #e13300;color: white;  float: left;" class="btn btn-outline-primary" >
-                    Logout
-                    <i class="bi bi-box-arrow-right"></i>
-                </button>
-            </form>
+
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        <img class="user-image" src="{{ Auth::user()->img ? asset('storage/image/'.Auth::user()->img) : asset('image/profile.jpg') }}" alt="{{ Auth::user()->name }}">
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end mt-2" style="margin-left: -65px;">
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item" style="width: 100%">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+                {{--            <h4 class="d-block"style="color: #828583;" >Welcome {{Auth::user()->name}}</h4>&nbsp;&nbsp;--}}
+
+{{--                <img class="img-circle elevation-2" src="{{ asset(Auth::user()->img ? 'storage/image/'.Auth::user()->img : 'storage/image/profile.jpg') }}" alt="{{ Auth::user()->name }}" style="height: 50px; width: 50px;">--}}
+{{--                <img class="img-circle elevation-2" src="{{ asset(Auth::user()->img)}}" alt="{{ Auth::user()->name }}" style="height: 50px; width: 50px;">--}}
+{{--                @if(Auth::user()->img)--}}
+{{--                    <img class="img-circle elevation-2" src="{{asset('/storage/image/'.Auth::user()->img)}}" alt="{{ Auth::user()->name }}" style="height: 50px; width: 50px;">--}}
+{{--                @endif--}}
+
+
+
+
+                {{--            <form method="POST" action="{{ route('logout') }}" style="display: inline;">--}}
+{{--                @csrf--}}
+{{--                @method('POST')--}}
+{{--                <button style="background-color: #e13300; border-color: #e13300;color: white;  float: left;" class="btn btn-outline-primary" >--}}
+{{--                    Logout--}}
+{{--                    <i class="bi bi-box-arrow-right"></i>--}}
+{{--                </button>--}}
+{{--            </form>--}}
             @else
             <div class="signup">
                 <button class="btn btn-outline-primary"><a href="{{route('login')}}">Sign In </a><i

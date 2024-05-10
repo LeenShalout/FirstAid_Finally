@@ -10,30 +10,30 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       @auth
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">  
-        <div class="image">
-          <img class="img-circle elevation-2" src="{{URL::asset("storage/image/".Auth::user()->img)}}" alt="{{Auth::user()->name}}" style="
-          height: 50px;
-          width: 50px;">
-        </div>
-        <div class="info">
-          <h5 class="d-block">{{Auth::user()->name}}</h5>
-        </div>
-        {{-- <div >
-        <br><br><a href="{{ route('logout') }}" style="background-color: #e13300; border-color: #e13300;color: white; " class="btn btn-primary float-left">Logout</a>
-        </div> --}}
+      <div class="user-panel mt-3 pb-3 mb-3">
+          <div class="d-flex">
+              <div class="img">
+                  <img class="img-circle elevation-2" src="{{ Auth::user()->img ? asset('storage/image/'.Auth::user()->img) : asset('image/profile.jpg') }}" alt="{{Auth::user()->name}}" style="
+          height: 40px;
+          width: 40px;
+          margin-left: 5px">
+              </div>
+              <div class="info">
+                  <h5 class="d-block">{{Auth::user()->name}}</h5>
+              </div>
+          </div>
+
         <div>
-          <form method="POST" action="{{ route('logout') }}" style="display:inline ">
+          <form method="POST" action="{{ route('logout') }}">
             @csrf
             @method('POST')
-            <br><br>
-            <button style="background-color: #e13300; border-color: #e13300;color: white;" class="btn btn-primary float-left" >
+            <button style="background-color: #e13300; border-color: #e13300;color: white;" class="btn btn-primary float-left mt-3" >
                 Logout
             </button>
         </form>
       </div>
       </div>
-      
+
       @endauth
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -60,18 +60,18 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-          
+
           </li>
           <li class="nav-header">
            Settings
-          </li> 
+          </li>
           <li class="nav-item">
             <a href="/admin/profile" class="nav-link">
               <i class="nav-icon fas fa-user-shield"></i>
 
               <p>
                Admin profile
-               
+
               </p>
             </a>
           </li>
@@ -80,7 +80,7 @@
           </li>
           <li class="nav-item">
 
-           
+
 
             <a href="{{route('AdminCase.index')}}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -182,7 +182,7 @@
             </a>
           </li> --}}
           <div>
-          
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>

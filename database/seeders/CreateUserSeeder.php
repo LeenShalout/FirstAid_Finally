@@ -14,20 +14,20 @@ class CreateUserSeeder extends Seeder
     {
         $users=[
             [
-                'name'=>'Nadin', 
+                'name'=>'Nadin',
                 'email' => 'nadin@gmail.com',
                 'password'=>bcrypt('nadinpass'),
-                'img'=>'4bfc73980173bf6cba2ee743648d11f0.jpg',
+                'img'=>'profile.jpg',
                 'location'=>'Amman',
                 'Phone'=>'+96276770656454',
                 'role'=>0
             ],
 
             [
-                'name'=>'Ahmad', 
+                'name'=>'Ahmad',
                 'email' => 'ahmad@gmail.com',
                 'password'=>bcrypt('ahmadpass'),
-                'img'=>'Discover-the-benefit-of-machine-learning-min.jpg',
+                'img'=>'profile.jpg',
                 'location'=>'Amman, Jordan',
                 'Phone'=>'+96278467523802',
                 'role'=>1
