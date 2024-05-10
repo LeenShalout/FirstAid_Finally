@@ -51,8 +51,9 @@ Table
                             <tr>
 
 
-                                <td>{{$contact->Message}} </td>
-                                <td>{{$contact->created_at }}</td>
+                                <td>{{$contact->Email}} </td>
+                                <td>{{$contact->Name }}</td>
+                                <td>{{$contact->Message}}</td>
                                 <td>{{$contact->updated_at }}</td>
                             
 

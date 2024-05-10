@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\adminLoginController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\User\UserContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\Admin\BlogController;
@@ -115,7 +116,7 @@ Route::get('experienceMyPosts',[UserExperienceController::class,'myPosts']);
 
 Route::resource('experience',UserExperienceController::class);
 
-Route::resource('contact',ContactController::class);
+Route::resource('contact',UserContactController::class);
 
 Route::resource('workshop',UserWorkshopController::class);
 
