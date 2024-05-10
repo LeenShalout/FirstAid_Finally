@@ -50,6 +50,8 @@
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end mt-2" style="margin-left: -65px;">
+                        <li class="ps-3">{{Auth::user()->name}}</li>
+                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/profile">Profile</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
