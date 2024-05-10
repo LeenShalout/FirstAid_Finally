@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('experiences', function (Blueprint $table){
             $table->id();
             $table->string('Post');
-            $table->string('Img');
+            $table->string('Img')->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
         });
-		
+
     }
 
     /**

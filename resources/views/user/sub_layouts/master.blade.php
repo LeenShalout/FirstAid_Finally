@@ -37,11 +37,19 @@
             <!-- Inner sidebar -->
             <div class="inner-sidebar">
                 <div class="inner-sidebar-header justify-content-center">
-                    <button class="btn btn-primary has-icon btn-block" type="button" data-bs-toggle="modal"
-                        data-bs-target="#threadModal">
-                        <i class="fa-solid fa-plus"></i>
-                        Add Your Experience
-                    </button>
+                    @auth
+                        <button class="btn btn-primary has-icon btn-block" type="button" data-bs-toggle="modal"
+                                data-bs-target="#threadModal">
+                            <i class="fa-solid fa-plus"></i>
+                            Add Your Experience
+                        </button>
+                    @else
+                        <button class="btn btn-primary has-icon btn-block" type="button" disabled>
+                            <i class="fa-solid fa-plus"></i>
+                            Add Your Experience
+                        </button>
+                    @endauth
+
                 </div>
 
                 <div class="inner-sidebar-body p-0">

@@ -13,6 +13,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -57,4 +58,5 @@ class User extends Authenticatable
             get: fn($value)=>["user","admin"][$value]
         );
     }
+
 }
