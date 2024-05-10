@@ -3,7 +3,12 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
+<<<<<<< HEAD
+        "build": "vite build",
+        "development": "mix"
+=======
         "build": "vite build"
+>>>>>>> c5264257b95b26228d9a7fa2cffb501c171a67bd
     },
     "devDependencies": {
         "axios": "^1.6.4",

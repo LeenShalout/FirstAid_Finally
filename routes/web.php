@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{myProfileController,AuthController};
+use App\Http\Controllers\{myProfileController, AuthController, User\UserProfileController};
 use App\Http\Controllers\Auth\adminLoginController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminDashboardController;
@@ -96,7 +96,7 @@ Route::get('/signup', function () {
 Route::get('/login', function () {
     return view('user/login');
 });
-Route::get('/profile', function () {
+Route::get('profile', function () {
     return view('user/profile');
 });
 Route::get('/forum', function () {
@@ -111,6 +111,9 @@ Route::get('experienceMyPostsDelete/{id}',[UserExperienceController::class,'dest
 Route::get('experienceMyPostsEdit/{id}',[UserExperienceController::class,'edit'])->name('experience.edit');
 Route::get('experienceMyPosts',[UserExperienceController::class,'myPosts']);
 
+//Profile
+//Route::POST('profile/{id}', [UserProfileController::class, 'update'])->name('profile.update');
+Route::patch('profile/{id}', [UserProfileController::class, 'update'])->name('profile.update');
 
 
 

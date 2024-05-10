@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('img')->nullable();
+            $table->string('img')->default("profile.jpg");
             $table->text('location');
             $table->text('Phone');
+            $table->date('birthday')->nullable();
             $table->softDeletes();
             //$table->string('role')->default('user');
             //$table->boolean('is_admin')->default('0');

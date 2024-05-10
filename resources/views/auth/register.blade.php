@@ -37,7 +37,7 @@
             <x-input-label for="password_confirmation" class="form-label" :value="__('Confirm Password')" />
 
             <x-text-input id="password_confirmation" class="form-control"
-                            type="password"
+                            type="password" placeholder="Confirm your Password"
                             name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
@@ -45,7 +45,7 @@
 
  <div  class="mb-3">
             <x-input-label for="location" class="form-label" :value="__('Location')" />
-            <x-text-input id="location" class="form-control" type="text" name="location" :value="old('location')"  placeholder="Location" required autofocus autocomplete="location" />
+            <x-text-input id="location" class="form-control" type="text" name="location" :value="old('location')"  placeholder="Enter your Location" required autofocus autocomplete="location" />
             <x-input-error :messages="$errors->get('location')" class="mt-2" />
         </div>
 
@@ -62,7 +62,7 @@
             </a>
         </div>
 
-        <div class="d-flex justify-content-center"> 
+        <div class="d-flex justify-content-center">
             <x-primary-button class="btn btn-primary">
                 {{ __('Register') }}
             </x-primary-button>

@@ -50,19 +50,19 @@
                             </ul>
 
                             <p class="blog-intro">{{ $blog->Intro }}</p>
-                            <?php   $a=json_decode($blog->Steps) ?>
+                                <?php   $a=json_decode($blog->Steps) ?>
                             <div class="blog-steps">
                                 <ol class="m-0 p-0">
                                     @foreach( $a as $step)
-                                    <li>
-                                        <h4> {{ $step->step}}</h4>
-                                        <p>{{ $step->description}}</p>
-                                    </li>
+                                        <li>
+                                            <h4> {{ $step->step}}</h4>
+                                            <p>{{ $step->description}}</p>
+                                        </li>
                                     @endforeach
 
                                 </ol>
-                      
-                    
+
+
                             </div>
 
                             <div class="blog-conclusion">
