@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('Name');
             $table->string('Message');
             $table->string('Email');
-            $table->softDeletes();
             $table->Timestamps();
 
             $table->unsignedBigInteger('user_id')->nullable();

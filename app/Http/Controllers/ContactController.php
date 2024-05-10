@@ -77,22 +77,5 @@ class ContactController extends Controller
         
     }
 
-    public function showDeletedContacts(){
-
-$contacts=Contact::whereNotNull('deleted_at')->get();
-return view('admin.message.message_soft_delete',compact('contacts'));
-    }
-
-    public function restore($id){
-        Contact::withTrashed()->where('id',$id)
-       ->restore();
-        return redirect()->route('contacts.index');
-    }
-    
-    public function forceDelete($id)
-    {
-        Contact::withTrashed()->where('id',$id)
-        ->forceDelete();
-         return redirect()->route('contacts.index');
-    }
+   
 }
