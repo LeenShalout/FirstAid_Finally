@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Experience;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -48,6 +49,8 @@ class UserExperienceController extends Controller
         $request->file('experienceImage')->storeAs('public/image',$imagePath);
 
         $experience->Img=$imagePath;
+
+        $experience->user_id=\auth()->user()->id;
 
         $experience->save();
 
