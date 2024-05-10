@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('Post');
             $table->string('Img');
-            $table->softDeletes();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('my_users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 		
     }
