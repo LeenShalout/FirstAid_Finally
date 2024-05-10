@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class UserContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,13 +29,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        // $contact=new Contact();
-
+        
         Contact::create([
             'Name' => $request->name,
             'Email' => $request->email,
             'Message' => $request->message,
-//            'user_id' => auth()->id()
+           'user_id' => auth()->id()
         ]);
 
         return response('done');

@@ -40,9 +40,9 @@ Table
                         <thead>
                        <tr>
 
+                                <th>Email</th>
+                                <th>Name</th>
                                 <th>Message</th>
-                                <th>deleted_at</th>
-                                <th>created_at</th>
                                 <th>updated_at</th>
                                 <th>Action</th>
                             </tr>
@@ -53,8 +53,8 @@ Table
                             <tr>
 
                                 <td>{{$contact->Email}} </td>
-                                <td>{{$contact->deleted_at }}</td>
-                                <td>{{$contact->created_at }}</td>
+                                <td>{{$contact->Name }}</td>
+                                <td>{{$contact->Message}}</td>
                                 <td>{{$contact->updated_at }}</td>
                                
                             

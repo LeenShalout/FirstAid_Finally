@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone');
             // Changed to lowercase and underscores for convention
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('my_users')->cascadeOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
 
             
             $table->unsignedBigInteger('Workshop_id')->nullable();

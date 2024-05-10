@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table)  {
             $table->id();
+            $table->string('Name');
             $table->string('Message');
+            $table->string('Email');
             $table->softDeletes();
             $table->Timestamps();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('my_users');
+
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 
