@@ -1,4 +1,3 @@
-Lana, [09/05/2024 7:27 PM]
 @extends('admin.adminLayouts.masterPage')
 
 @section('title')
@@ -95,8 +94,6 @@ Lana, [09/05/2024 7:27 PM]
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <button type="button" class="add_form_field btn btn-primary">Add New Field &nbsp;
-
-                                        Lana, [09/05/2024 7:27 PM]
                                         <span style="font-size:16px; font-weight:bold;">+</span>
                                     </button>
                                 </div>
@@ -193,8 +190,6 @@ Lana, [09/05/2024 7:27 PM]
     <script src="{{asset('css.admin/dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('css.admin/dist/js/demo.js')}}"></script>
-
-    Lana, [09/05/2024 7:27 PM]
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('css.admin/dist/js/pages/dashboard.js')}}"></script>
     <!-- Page specific script -->

@@ -46,18 +46,15 @@
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        <img class="img-circle elevation-2" src="{{ asset('/storage/image/Auth::user()->img' ? 'storage/image/'.Auth::user()->img : 'image/profile.jpg') }}" alt="{{ Auth::user()->name }}" style="height: 50px; width: 50px;">
-{{--                        @if(Auth::user()->img)--}}
-{{--                            <img class="img-circle elevation-2" src="{{asset('/storage/image/Auth::user()->img')}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">--}}
-{{--                        @endif--}}
+                        <img class="user-image" src="{{ Auth::user()->img ? asset('storage/image/'.Auth::user()->img) : asset('image/profile.jpg') }}" alt="{{ Auth::user()->name }}">
                     </a>
 
-                    <ul class="dropdown-menu" style="margin-left: -65px;">
+                    <ul class="dropdown-menu dropdown-menu-end mt-2" style="margin-left: -65px;">
                         <li><a class="dropdown-item" href="/profile">Profile</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="dropdown-item">Logout</button>
+                                <button type="submit" class="dropdown-item" style="width: 100%">Logout</button>
                             </form>
                         </li>
                     </ul>

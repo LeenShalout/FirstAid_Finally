@@ -12,10 +12,11 @@
       @auth
       <div class="user-panel mt-3 pb-3 mb-3">
           <div class="d-flex">
-              <div class="image">
-                  <img class="img-circle elevation-2" src="{{URL::asset("storage/image/".Auth::user()->img)}}" alt="{{Auth::user()->name}}" style="
-          height: 50px;
-          width: 50px;">
+              <div class="img">
+                  <img class="img-circle elevation-2" src="{{ Auth::user()->img ? asset('storage/image/'.Auth::user()->img) : asset('image/profile.jpg') }}" alt="{{Auth::user()->name}}" style="
+          height: 40px;
+          width: 40px;
+          margin-left: 5px">
               </div>
               <div class="info">
                   <h5 class="d-block">{{Auth::user()->name}}</h5>
@@ -26,7 +27,7 @@
           <form method="POST" action="{{ route('logout') }}">
             @csrf
             @method('POST')
-            <button style="background-color: #e13300; border-color: #e13300;color: white;" class="btn btn-primary float-left" >
+            <button style="background-color: #e13300; border-color: #e13300;color: white;" class="btn btn-primary float-left mt-3" >
                 Logout
             </button>
         </form>

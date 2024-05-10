@@ -65,6 +65,10 @@ class UserController extends Controller
         $myUser->location=$request->location;
         $myUser->Phone=$request->Phone;
         $myUser->role=$request->role;
+        $myUser->birthday=$request->birthday;
+
+
+
         $myUser->save();
         return redirect()->route('users.index')->with('success','User added successfully');
 

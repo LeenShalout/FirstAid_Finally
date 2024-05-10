@@ -33,6 +33,7 @@
 border: #D22B2B 1px solid;
 box-shadow: none;
 }
+
 .dropdown-item{
     width: 80%;
 }
@@ -42,7 +43,13 @@ box-shadow: none;
 .dropdown-item:focus{
     background-color: #D22B2B;
 }
-
+.user-image{
+    outline: 1px solid #D22B2B;
+    outline-offset: 3px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
 @media(max-width: 768px){
     .navbar-nav{
         display: flex;

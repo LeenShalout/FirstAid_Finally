@@ -1,4 +1,3 @@
-Lana, [09/05/2024 7:29 PM]
 @extends('user.layouts.master')
 
 @section('title', 'Blogs')
@@ -88,8 +87,6 @@ Lana, [09/05/2024 7:29 PM]
                 <div class="categories mb-4">
                     <h4 class="sidebar-title">Categories</h4>
                     <div class="categories-list">
-
-                        Lana, [09/05/2024 7:29 PM]
                         <ul class="p-0 m-0">
                             <li class="active"><i class="fa-solid fa-angle-right"></i><a href="#">Pets</a></li>
                             <li><i class="fa-solid fa-angle-right"></i><a href="#">Psychological</a></li>

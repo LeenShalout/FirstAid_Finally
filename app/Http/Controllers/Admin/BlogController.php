@@ -35,10 +35,10 @@ class BlogController extends Controller
     {
         $request->validate([
             'Category' => 'required',
-            'Title' => 'required|unique:blogs',
-            'MainTitle' => 'required|unique:blogs',
-            'Photo' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'MainImg' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'Title' => 'required|unique:blogs|max:255',
+            'MainTitle' => 'required|unique:blogs|max:255',
+            'Photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'MainImg' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             // Add validation for the video file if needed
         ]);
 
