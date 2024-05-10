@@ -69,17 +69,6 @@
                                                 <a href="/experienceLatest" class="{{ request()->is('experienceLatest') ? 'nav-link nav-link-faded has-icon active' : 'nav-link nav-link-faded has-icon' }}">Latest</a>
                                             </nav>
 
-                                            {{-- <nav class="nav nav-pills nav-gap-y-1 flex-column">
-                                                <div class="nav nav-links" id="nav-tab" role="tablist">
-                                                    <button class="nav-link nav-link-faded has-icon active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                                                        type="button" role="tab" aria-controls="nav-home" aria-selected="true">All Posts</button>
-                                                    <button class="nav-link nav-link-faded has-icon" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                                                        type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My
-                                                        Posts</button>
-                                                    <button class="nav-link nav-link-faded has-icon" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                                                        type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Latest</button>
-                                                </div>
-                                            </nav> --}}
                                         </div>
                                     </div>
                                 </div>

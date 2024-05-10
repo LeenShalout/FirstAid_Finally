@@ -34,30 +34,26 @@ class UserExperienceController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $request->validate([
             'experience' => 'required',
-            'experienceImage' => 'image | mimes:jpeg,png,jpg max:2048'
+            'experienceImage' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-
         $experience = new Experience();
-        $experience->Post=$request->experience;
+        $experience->Post = $request->experience;
 
-        $imagePath=$request->file('experienceImage')->getClientOriginalName();
-        $request->file('experienceImage')->storeAs('public/image',$imagePath);
+        if ($request->hasFile('experienceImage')) {
+            $imagePath = $request->file('experienceImage')->getClientOriginalName();
+            $request->file('experienceImage')->storeAs('public/image', $imagePath);
+            $experience->Img = $imagePath;
+        }
 
-        $experience->Img=$imagePath;
-
-        $experience->user_id=\auth()->user()->id;
-
+        $experience->user_id = auth()->user()->id;
         $experience->save();
 
-
         return response('Added Successfully');
-
     }
+
 
     /**
      * Display the specified resource.
@@ -105,6 +101,7 @@ class UserExperienceController extends Controller
             $experience->Img = $imageName;
         }
 
+
         // Update other fields
         $experience->Post = $request->experience;
         $experience->user_id = Auth::id(); // Assigning the authenticated user's ID to the user_id field
@@ -134,11 +131,13 @@ class UserExperienceController extends Controller
     }
     public function myPosts()
     {
-        // $user = Auth::user();
-        // $myPosts = Experience::latest()->paginate(2);
+        $user = Auth::user();
+        $myPosts = $user->experiences()->latest()->get();
 
-        $experiences = Experience::all();
-
-        return view('user.experienceMyPosts',compact('experiences'));
+        return view('user.experienceMyPosts', compact('myPosts'));
     }
+
+
+
+
 }
