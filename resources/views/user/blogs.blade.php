@@ -17,7 +17,7 @@
             <div class="col-md-9">
                 @foreach($blogs as $blog)
                     <article>
-                        <img src="{{ asset('Images/petsBlog.jpg') }}" alt="" class="img-fluid">
+                        <img src="{{ asset('Images/' . $blog->MainImg) }}" alt="" class="img-fluid" style="width: 100%; height:23rem;">
                         <div class="post-content mt-2">
                             <h3 class="blog-title">{{ $blog->Title }}</h3>
                             <ul class="post-meta list-inline">
@@ -88,13 +88,13 @@
                     <h4 class="sidebar-title">Categories</h4>
                     <div class="categories-list">
                         <ul class="p-0 m-0">
-                            <li class="active"><i class="fa-solid fa-angle-right"></i><a href="#">Pets</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="#">Psychological</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="#">People with Special Needs</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="#">Big Occasions</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="#">Equipment</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="#">Travel</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="#">Food</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Pets') }}">Pets</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Psychological') }}">Psychological</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'People with Special Needs') }}">People with Special Needs</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Big Occasions') }}">Big Occasions</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Equipment') }}">Equipment</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Travel') }}">Travel</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Food') }}">Food</a></li>
                         </ul>
                     </div>
                 </div>

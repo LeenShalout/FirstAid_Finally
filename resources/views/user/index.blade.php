@@ -11,9 +11,17 @@
 @endsection
 
 @section('js')
-<script src="nav.js"></script>
 
-
+<script>
+document.addEventListener('scroll', () => {
+    const navbar = document.querySelector('navbar');
+    if (window.scrollY > 0) {
+        navbar.classList.add('active');
+    } else {
+        navbar.classList.remove('active');
+    }
+});
+</script>
 @endsection
 
 @section('content')

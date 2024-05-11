@@ -38,6 +38,7 @@
                                         <!-- Profile picture image-->
                                         <img class="img-account-profile rounded-circle mb-2"
                                              src="{{URL::asset("storage/image/".Auth::user()->img)}}" alt="{{Auth::user()->name}}">
+
                                         <!-- Profile picture help block-->
                                         <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                                         <!-- Profile picture upload button-->
