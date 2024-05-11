@@ -23,9 +23,9 @@
     <title>AidHub | @yield('title')</title>
 
 
-<style>
-</style>
-@yield('css')
+    <style>
+    </style>
+    @yield('css')
 
 </head>
 <body>
@@ -61,25 +61,17 @@
                             <div class="simplebar-mask">
                                 <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
                                     <div class="simplebar-content-wrapper"
-                                        style="height: 100%; overflow: hidden scroll;">
+                                         style="height: 100%; overflow: hidden scroll;">
                                         <div class="simplebar-content" style="padding: 16px;">
                                             <nav class="nav nav-pills nav-gap-y-1 flex-column">
                                                 <a href="/experienceAllPosts" class="{{ request()->is('experienceAllPosts') ? 'nav-link nav-link-faded has-icon active' : 'nav-link nav-link-faded has-icon' }}">All Posts</a>
-                                                <a href="/experienceMyPosts" class="{{ request()->is('experienceMyPosts') ? 'nav-link nav-link-faded has-icon active' : 'nav-link nav-link-faded has-icon' }}">My Posts</a>
+                                                @auth
+                                                    <a href="/experienceMyPosts" class="{{ request()->is('experienceMyPosts') ? 'nav-link nav-link-faded has-icon active' : 'nav-link nav-link-faded has-icon' }}">My Posts</a>
+                                                @endauth
                                                 <a href="/experienceLatest" class="{{ request()->is('experienceLatest') ? 'nav-link nav-link-faded has-icon active' : 'nav-link nav-link-faded has-icon' }}">Latest</a>
                                             </nav>
 
-                                            {{-- <nav class="nav nav-pills nav-gap-y-1 flex-column">
-                                                <div class="nav nav-links" id="nav-tab" role="tablist">
-                                                    <button class="nav-link nav-link-faded has-icon active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                                                        type="button" role="tab" aria-controls="nav-home" aria-selected="true">All Posts</button>
-                                                    <button class="nav-link nav-link-faded has-icon" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                                                        type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My
-                                                        Posts</button>
-                                                    <button class="nav-link nav-link-faded has-icon" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                                                        type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Latest</button>
-                                                </div>
-                                            </nav> --}}
+
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +86,7 @@
                 <div class="inner-main-header">
                     <span class="input-icon input-icon-sm ml-auto w-auto">
                         <input type="text" class="form-control form-control-sm bg-gray-200 shadow-none mb-4 mt-4"
-                            placeholder="Search forum" />
+                               placeholder="Search forum" />
                     </span>
                 </div>
 
@@ -112,45 +104,45 @@
             </div>
         </div>
 
-        </div>
+    </div>
 
-        <!-- Add Experience Modal -->
-        <div class="modal fade" id="threadModal" tabindex="-1" aria-labelledby="threadModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
+    <!-- Add Experience Modal -->
+    <div class="modal fade" id="threadModal" tabindex="-1" aria-labelledby="threadModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
 
-                    <form action="{{ route('experience.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="modal-header">
-                            <h6 class="modal-title mb-0" id="threadModalLabel">New Experience</h6>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                <form action="{{ route('experience.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <h6 class="modal-title mb-0" id="threadModalLabel">New Experience</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="threadTitle">Write Your Experience</label>
+                            {{-- <textarea type="text" class="form-control" id="threadTitle" placeholder="Experience" autofocus="" /> --}}
+                            <textarea class="form-control m-0 p-0 ps-2 mt-2" id="threadTitle" rows="4" placeholder="Experience"
+                                      name="experience"></textarea>
                         </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="threadTitle">Write Your Experience</label>
-                                {{-- <textarea type="text" class="form-control" id="threadTitle" placeholder="Experience" autofocus="" /> --}}
-                                <textarea class="form-control m-0 p-0 ps-2 mt-2" id="threadTitle" rows="4" placeholder="Experience"
-                                    name="experience"></textarea>
-                            </div>
 
-                            <div class="img-upload mt-3">
-                                <label for="formFile" class="form-label">Upload Image</label>
-                                <input class="form-control" type="file" id="formFile" name="experienceImage">
-                            </div>
-
+                        <div class="img-upload mt-3">
+                            <label for="formFile" class="form-label">Upload Image</label>
+                            <input class="form-control" type="file" id="formFile" name="experienceImage">
                         </div>
-                        <div class="modal-footer mt-3">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Post</button>
-                        </div>
-                    </form>
 
-                </div>
+                    </div>
+                    <div class="modal-footer mt-3">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
+</div>
 </div>
 
 @include('user.layouts.footer')

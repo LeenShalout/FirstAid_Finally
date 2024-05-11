@@ -21,15 +21,15 @@
                     <div class="media forum-item">
                         <div class="media-body">
                             <div class="d-flex align-items-center">
-                                @auth
-                                    <img src="{{ Auth::user()->img ? asset('storage/image/'.Auth::user()->img) : asset('image/profile.jpg') }}"
-                                         class="mr-3 rounded-circle" width="50" alt="User" />
-                                    <h6><a href="#" data-toggle="collapse" data-target=".forum-content"
-                                           class="text-body ms-3">{{Auth::user()->name}}</a></h6>
-                                @endauth
+                                <img src="{{ $latestPost->user->img ? asset('storage/image/'.$latestPost->user->img) : asset('image/profile.jpg') }}"
+                                     class="mr-3 rounded-circle" width="50" alt="User" />
+                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content"
+                                       class="text-body ms-3">{{$latestPost->user->name}}</a></h6>
                             </div>
                             <p class="text-secondary">{{ $latestPost->Post }}</p>
-                            <img src="{{ URL::asset("storage/image/".$latestPost->Img) }}" alt="" style="height:15rem; width:30rem;">
+                            @if ($latestPost->Img)
+                                <img src="{{ asset('storage/image/'.$latestPost->Img) }}" alt="" style="height:15rem; width:30rem;">
+                            @endif
                             <p class="text-muted mt-2">Posted at <span class="text-secondary font-weight-bold">{{ $latestPost->created_at->format('M d, Y') }}</span></p>
 
                         </div>

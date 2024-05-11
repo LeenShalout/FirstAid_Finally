@@ -67,17 +67,32 @@ class UserProfileController extends Controller
 
         $user = User::findOrFail($id);
 
-
         $user->name = $request->name;
         $user->email = $request->email;
         $user->location = $request->location;
         $user->phone = $request->phone;
         $user->birthday = $request->birthday;
 
-        $user->update();
+        if ($request->hasFile('img')) {
+            if ($user->img) {
+                Storage::delete('public/image/' . $user->img);
+            }
+
+            // Upload the new image
+            $imagePath = $request->file('img')->store('public/image');
+
+            // Get the image name
+            $imageName = basename($imagePath);
+
+            // Update the image path in the database
+            $user->img = $imageName;
+        }
+
+        $user->save();
 
         return redirect()->back()->with('success', 'Profile updated successfully.');
     }
+
 
 
 
