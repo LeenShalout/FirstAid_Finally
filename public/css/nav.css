@@ -9,7 +9,7 @@
     top: 0;
     transition: background-color 0.3s ease;
 }
-.navbar.active {
+nav.active {
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,0.7903361173570991) 0%, rgba(255,253,224,1) 100%);
 }
