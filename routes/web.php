@@ -84,7 +84,7 @@ Route::get('/mainCases/{category}',[UserCaseController::class,'userIndex'])->nam
 Route::get('/cases/{id}',[UserCaseController::class,'userCase'])->name('cases');
 
 //Blogs
-Route::get('/blogs/{id}',[UserBlogController::class,'blogIndex'])->name('blogs');
+Route::get('/blog/{id}', [UserBlogController::class, 'blogIndex'])->name('blog');
 Route::get('/mainBlogs',[UserBlogController::class,'index'])->name('mainBlogs');
 Route::get('/mainBlogs/{category}',[UserBlogController::class,'sort'])->name('mainBlogs');
 

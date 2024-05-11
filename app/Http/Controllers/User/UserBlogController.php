@@ -33,8 +33,6 @@ class UserBlogController extends Controller
     public function blogIndex($id)
     {
         $blogs = Blog::where('id', $id)->get();
-//        $data = json_decode(Storage::get('blogs.json'), true);
-
         return view('user.blogs',compact('blogs'));
 
     }
