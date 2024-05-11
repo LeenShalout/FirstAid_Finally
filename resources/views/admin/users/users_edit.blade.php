@@ -51,6 +51,14 @@ User
                             <label for="img">Image:</label>
                             <input type="file" class="form-control-file" id="img" name="img">
                             </div>
+                            {{-- <div class="form-group">
+                                <label for="img">Image:</label>
+                                <input type="file" class="form-control-file" id="img" name="img" 
+                                    @if ($user->img === 'img')
+                                        selected
+                                    @endif
+                                >
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="location">Location:</label>
@@ -65,8 +73,8 @@ User
 
                                         <div class="form-group">
                                             <select name="role">
-                                                <option value="0">0</option>
-                                                    <option value="1">1</option>
+                                                <option value="0"{{ $user->role === 'user' ? 'selected' : '' }}>0</option>
+                                                    <option value="1"{{ $user->role === 'admin' ? 'selected' : '' }}>1</option>
                                             </select>
 
                                         </div>

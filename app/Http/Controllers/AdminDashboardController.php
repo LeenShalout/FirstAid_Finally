@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
@@ -9,6 +10,7 @@ use App\Models\MyCase;
 use App\Models\Blog;
 use App\Models\Workshop;
 use App\Models\Experience;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Auth;
 class AdminDashboardController extends Controller
 {
@@ -23,8 +25,15 @@ if(isset($user) && $user->role == "admin") {
     $blogsCount=Blog::all()->count();
     $workshopCount=Workshop::all()->count();
     $experienceCount=Experience::all()->count();
-    $recentlyAddedAdmins = User::where('role', 1)->latest()->take(5)->select('name','img','email')->get();
+    $recentlyAddedAdmins = User::where('role', 1)->latest()->take(3)->select('name','img','email')->get();
    $latestUsers=User::where('role', 0)->latest()->take(5)->select('name','img','created_at')->get();
+   $activeUsers=Experience::with('user')->take(2)->get();
+   $registeredCount=Registered::all()->count();
+   $messages=Contact::all()->count();
+   $registeredParticipants = Registered::with('workshopTitle')->take(2)->get();
+   $recentMessages= Contact::take(2)->select('Name','Message')->get();
+
+
 
     return view('admin.dashboard',['userCount'=>$userCount,
     'casesCount'=>$casesCount,
@@ -33,7 +42,12 @@ if(isset($user) && $user->role == "admin") {
     'adminCount'=>$adminCount,
     'experienceCount'=>$experienceCount,
 'recentlyAddedAdmins'=>$recentlyAddedAdmins,
-'latestUsers'=>$latestUsers]);
+'latestUsers'=>$latestUsers,
+'activeUsers'=>$activeUsers,
+'registeredCount'=>$registeredCount,
+'messages'=>  $messages,
+'registeredParticipants'=> $registeredParticipants,
+'recentMessages'=>$recentMessages]);
 } 
 elseif(isset($user) && $user->role == "user"){
     return abort('403');

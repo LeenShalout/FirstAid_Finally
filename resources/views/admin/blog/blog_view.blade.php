@@ -34,7 +34,7 @@ blogs
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{route('AdminBlog.create')}}" class="btn btn-primary float-right" style="background-color: #ff0000;">Add Blog</a>
+                    <a href="{{route('AdminBlog.create')}}" class="btn btn-primary float-right"  style="background-color: #e13300; border-color: #e13300;">Add Blog</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body" style="overflow-x: scroll">
@@ -67,15 +67,15 @@ blogs
                                     <td>{{ $blog->Conclusion }}</td>
                                     <td>
                                         <!-- Edit Button -->
-                                        <a href="{{ route('AdminBlog.edit', $blog->id) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Edit">
-                                            <i class="material-icons">edit</i>
+                                        <a href="{{ route('AdminBlog.edit', $blog->id) }} "  style="color: #e13300;" title="Edit">
+                                            <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
                                         </a>
                                         <!-- Delete Form -->
                                         <form action="{{ route('AdminBlog.destroy', $blog->id) }}" method="post" style="display: inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Delete">
-                                                <i class="material-icons">delete</i>
+                                            <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;color: #e13300;">
+                                                <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
                                             </button>
                                         </form>
                                     </td>

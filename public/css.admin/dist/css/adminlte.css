@@ -2588,14 +2588,14 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #F8DFDB;
+  border-color: #F8DFDB;
 }
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #F8DFDB;
+  border-color: #F8DFDB;
   box-shadow: 0 0 0 0 rgba(38, 143, 255, 0.5);
 }
 
@@ -2608,8 +2608,8 @@ fieldset:disabled a.btn {
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
+  background-color: #e13300;
+  border-color: #e13300;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -5228,7 +5228,7 @@ a.badge:hover, a.badge:focus {
 
 a.badge-primary:hover, a.badge-primary:focus {
   color: #fff;
-  background-color: #0062cc;
+  background-color: #F8DFDB;
 }
 
 a.badge-primary:focus, a.badge-primary.focus {
@@ -6827,7 +6827,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #0062cc !important;
+  background-color: #F8DFDB !important;
 }
 
 .bg-secondary {
@@ -6861,7 +6861,7 @@ button.bg-info:focus {
 }
 
 .bg-warning {
-  background-color: #ffc107 !important;
+  background-color: rgb(243, 156, 18) !important;
 }
 
 a.bg-warning:hover, a.bg-warning:focus,
@@ -10183,11 +10183,11 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #f8f9fa !important;
+  color: #F8DFDB !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #0056b3 !important;
+  color:#F8DFDB !important;
 }
 
 .text-secondary {
@@ -10223,7 +10223,7 @@ a.text-warning:hover, a.text-warning:focus {
 }
 
 .text-danger {
-  color: #F8DFDB !important;
+  color: #e13300 !important;
 }
 
 a.text-danger:hover, a.text-danger:focus {
