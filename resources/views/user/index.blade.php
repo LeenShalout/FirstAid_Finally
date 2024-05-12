@@ -161,28 +161,24 @@
                             <div class="col d-flex justify-content-center">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="{{ asset('Images/animal.png') }}" class="card-img-top" alt="...">
+                                        <a href="{{ route('mainBlogs', 'Pets') }}"><img src="{{ asset('Images/animal.png') }}" class="card-img-top" alt=""></a>
                                         <h5 class="card-title">Pets</h5>
-                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="{{ asset('Images/Psycho.png') }}" class="card-img-top" alt="...">
+                                        <a href="{{ route('mainBlogs', 'Psychological') }}"><img src="{{ asset('Images/Psycho.png') }}" class="card-img-top" alt=""></a>
                                         <h5 class="card-title">Psychological</h5>
-                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="{{ asset('Images/specialNeeds.png') }}" class="card-img-top"
-                                            alt="...">
+                                        <a href="{{ route('mainBlogs', 'People with Special Needs') }}"><img src="{{ asset('Images/specialNeeds.png') }}" class="card-img-top" alt=""></a>
                                         <h5 class="card-title">People with Special Needs</h5>
-                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
                                 </div>
                             </div>
@@ -190,10 +186,8 @@
                             <div class="col">
                                 <div class="card circle">
                                     <div class="card-body">
-                                        <img src="{{ asset('Images/BigOccasions.png') }}" class="card-img-top"
-                                            alt="...">
+                                        <a href="{{ route('mainBlogs', 'Big Occasions') }}"><img src="{{ asset('Images/BigOccasions.png') }}" class="card-img-top" alt=""></a>
                                         <h5 class="card-title">Big Occasions</h5>
-                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
                                 </div>
                             </div>
@@ -203,28 +197,24 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="{{ asset('Images/equipment.png') }}" class="card-img-top"
-                                            alt="...">
+                                        <a href="{{ route('mainBlogs', 'Equipment') }}"><img src="{{ asset('Images/equipment.png') }}" class="card-img-top" alt=""></a>
                                         <h5 class="card-title">Equipment</h5>
-                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="{{ asset('Images/travel.png') }}" class="card-img-top" alt="...">
+                                        <a href="{{ route('mainBlogs', 'Travel') }}"><img src="{{ asset('Images/travel.png') }}" class="card-img-top" alt=""></a>
                                         <h5 class="card-title">Travel</h5>
-                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="{{ asset('Images/food.png') }}" class="card-img-top" alt="...">
+                                        <a href="{{ route('mainBlogs', 'Food') }}"><img src="{{ asset('Images/food.png') }}" class="card-img-top" alt=""></a>
                                         <h5 class="card-title">Food</h5>
-                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                                     </div>
                                 </div>
                             </div>
