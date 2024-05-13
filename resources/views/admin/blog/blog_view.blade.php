@@ -24,7 +24,6 @@ Tables
 blogs
 @endsection
 
-@extends('admin.adminLayouts.masterPage')
 
 @section('title', 'Blog Management')
 

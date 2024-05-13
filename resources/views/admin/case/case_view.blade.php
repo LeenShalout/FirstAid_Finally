@@ -24,7 +24,7 @@ Tables
 Cases
 @endsection
 
-@extends('admin.adminLayouts.masterPage')
+
 
 @section('title', 'Case Management')
 

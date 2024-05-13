@@ -42,7 +42,7 @@
     <div class="blog-card col-md-{{ $col_size[$i % $col_size_length] }} {{ $col_size[$i % $col_size_length] == 8 ? 'd-flex' : '' }} {{ $i == $col_size_length - 1 ? 'd-flex flex-row-reverse' : '' }} {{ 'blog-' . ($i + 1) }} p-3">
         <div class="blogs-img">
             @if ($blog->Photo)
-                <img src="{{ asset('Images/' . $blog->Photo) }}" class="img-fluid" alt="">
+                <img src="{{ asset("storage/image/$blog->Photo") }}" class="img-fluid" alt="">
             @endif
         </div>
         <div class="ms-3">
