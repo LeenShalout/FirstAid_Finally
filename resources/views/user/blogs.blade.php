@@ -17,8 +17,8 @@
             <div class="col-md-9">
                 @foreach($blogs as $blog)
                     <article>
-                        <img src="{{ asset('Images/' . $blog->MainImg) }}" alt="" class="img-fluid" style="width: 100%; height:23rem;">
-                        <div class="post-content mt-2">
+                        <img src="{{ asset("storage/image/$blog->MainImg") }}" alt="" class="img-fluid" style="width: 100%; height:23rem;">
+                        <div class="post-content mt-3">
                             <h3 class="blog-title">{{ $blog->Title }}</h3>
                             <ul class="post-meta list-inline">
                                 <li class="list-inline-item">

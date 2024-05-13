@@ -53,10 +53,14 @@ fill: #FDF8F4;
 .category-list p{
     margin: 10px;
 }
+.card-body a img {
 
+    transition: transform 0.5s;}
 
+.card-body a img:hover{
+    transform: scaleX(-1);
 
-
+}
 
 
 
@@ -199,9 +203,14 @@ color: #999;
 font-size: 13px;
 }
 
-.post-meta li a:hover {
-color: #D22B2B;
+/*.post-meta li:hover {*/
+/*color: #D22B2B;*/
+/*}*/
+list-inline-item:hover{
+    color: #D22B2B;
+
 }
+
 
 .post-meta li i {
 margin-right: 5px;
