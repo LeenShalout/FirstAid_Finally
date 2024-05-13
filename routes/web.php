@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{myProfileController, AuthController, User\UserProfileController};
+use App\Http\Controllers\{myProfileController, SearchController, User\UserProfileController};
 use App\Http\Controllers\Auth\adminLoginController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminDashboardController;
@@ -10,10 +9,6 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\User\UserContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExperienceController;
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\MyCaseController;
-use App\Http\Controllers\Admin\WorkshopController;
-use App\Http\Controllers\Admin\RegisteredController;
 use App\Http\Controllers\User\UserExperienceController;
 use App\Http\Controllers\User\UserBlogController;
 use App\Http\Controllers\User\UserCaseController;
@@ -25,13 +20,11 @@ use App\Http\Controllers\User\UserWorkshopController;
 // Admin Routes
 Route::get('/admin/dashboard', [AdminProfileController::class, "dashboard"])->name('dashboard');
 
-
 Route::get('/admin/ca', function () {
     return view('admin/ca');
 });
 
 Route::get('/admin/profile', [myProfileController::class, "myProfile"])->name('myProfile');
-
 
 
 Route::resource(name:'contacts', controller:ContactController::class);
@@ -61,33 +54,32 @@ Route::get('adminLogin', [adminLoginController::class, 'create'])
 ->name('adminLogin');
 Route::post('adminLogin', [adminLoginController::class, 'store']);
 
-//Route::middleware(['auth','is_admin'])->group(function(){
-
-   // Route::get('/admin/dashboard', [AdminProfileController::class, "dashboard"])->name('dashboard');
-
-//});
-
 Route::middleware([])->group(function () {
 
 Route::get('/admin/dashboard', [AdminDashboardController::class, "dashboard"])->name('dashboard');
-
-
 });
 
+Route::resource('/AdminCase', MyCaseController::class);
+Route::resource('/AdminBlog', BlogController::class);
+Route::resource('/Registered', RegisteredController::class);
+Route::resource('/AdminWorkshop', WorkshopController::class);
+
+//********************************************************************************************
 
 // User Routes
 Route::get('/', function () {
     return view('user/index');
 })->name('indexUser');
+
 // Cases
 Route::get('/mainCases/{category}',[UserCaseController::class,'userIndex'])->name('mainCases');
 Route::get('/cases/{id}',[UserCaseController::class,'userCase'])->name('cases');
+Route::get('/search', [UserCaseController::class, 'search'])->name('search');
+
 
 //Blogs
 Route::get('/blog/{id}', [UserBlogController::class, 'blogIndex'])->name('blog');
 Route::get('/mainBlogs',[UserBlogController::class,'index'])->name('mainBlogs');
-Route::get('/mainBlogs/{category}',[UserBlogController::class,'sort'])->name('mainBlogs');
-
 
 
 Route::get('/signup', function () {
@@ -103,6 +95,7 @@ Route::get('/forum', function () {
     return view('user/forum');
 });
 
+
 //Experience
 Route::resource('experience',UserExperienceController::class);
 Route::get('/experienceAllPosts',[UserExperienceController::class, 'index'] );
@@ -112,9 +105,7 @@ Route::get('experienceMyPostsEdit/{id}',[UserExperienceController::class,'edit']
 Route::get('experienceMyPosts',[UserExperienceController::class,'myPosts']);
 
 //Profile
-//Route::POST('profile/{id}', [UserProfileController::class, 'update'])->name('profile.update');
 Route::patch('profile/{id}', [UserProfileController::class, 'update'])->name('profile.update');
-
 
 
 Route::resource('experience',UserExperienceController::class);
@@ -125,21 +116,10 @@ Route::resource('workshop',UserWorkshopController::class);
 
 
 
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 
-// **************************************
 
-// Admin Routes
-
-////////////////
-
-Route::resource('/AdminCase', MyCaseController::class);
-Route::resource('/AdminBlog', BlogController::class);
-Route::resource('/Registered', RegisteredController::class);
-Route::resource('/AdminWorkshop', WorkshopController::class);
-
-
-////////////
 
 
 require __DIR__.'/auth.php';

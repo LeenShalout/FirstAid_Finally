@@ -29,9 +29,11 @@
 
                 <div class="search d-flex justify-content-center">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                        <form action="{{ route('search') }}" method="GET">
+                        <input type="text" name="keyword" class="form-control" placeholder="Search" aria-label="Search"
                             aria-describedby="button-addon2">
-                        <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+                        <button class="btn btn-primary" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -40,6 +42,7 @@
         <div class="cases-container">
         <section id="cases" class="container-xxl">
                 <div class="cards d-flex justify-content-center align-items-center pt-5 flex-wrap">
+
 
                     @foreach($cases as $case)
                         <div class="card" style="width: 23rem; background-image: url('{{ asset('storage/image/' . $case->MainPhoto) }}'); background-repeat: no-repeat; background-position: top center; background-size: cover;">
@@ -55,39 +58,10 @@
 
 
 
-                    {{--                    <div class="card" style="width:23rem;">--}}
-{{--                        <div class="card-body">--}}
-{{--                            <h3 class="card-title text-center">Bleeding</h3>--}}
-{{--                            <p class="card-text text-center">Bleeding is the escape of blood from a damaged blood vessel, and it--}}
-{{--                                can occur--}}
-{{--                                for various reasons.</p>--}}
-{{--                            --}}{{-- <ul class="card-list d-flex p-0">--}}
-{{--                                <li>Blood flow</li>--}}
-{{--                                <li>Swelling</li>--}}
-{{--                            </ul> --}}
-{{--                            <div class="d-flex justify-content-center">--}}
-{{--                                <button type="button" class="btn btn-primary">Read More <i--}}
-{{--                                        class="bi bi-arrow-down-right-circle"></i></button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
 
-{{--                    <div class="card" style="width:23rem;">--}}
-{{--                        <div class="card-body">--}}
-{{--                            <h3 class="card-title text-center">Bleeding</h3>--}}
-{{--                            <p class="card-text text-center">Bleeding is the escape of blood from a damaged blood vessel, and it--}}
-{{--                                can occur--}}
-{{--                                for various reasons.</p>--}}
-{{--                            --}}{{-- <ul class="card-list d-flex p-0">--}}
-{{--                                <li>Blood flow</li>--}}
-{{--                                <li>Swelling</li>--}}
-{{--                            </ul> --}}
-{{--                            <div class="d-flex justify-content-center">--}}
-{{--                                <button type="button" class="btn btn-primary">Read More <i--}}
-{{--                                        class="bi bi-arrow-down-right-circle"></i></button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+
+
+
                 </div>
 
         </section>
