@@ -203,9 +203,14 @@ color: #999;
 font-size: 13px;
 }
 
-.post-meta li a:hover {
-color: #D22B2B;
+/*.post-meta li:hover {*/
+/*color: #D22B2B;*/
+/*}*/
+list-inline-item:hover{
+    color: #D22B2B;
+
 }
+
 
 .post-meta li i {
 margin-right: 5px;

@@ -28,7 +28,7 @@
             @csrf
             @method('POST')
             <button style="background-color: #e13300; border-color: #e13300;color: white;" class="btn btn-primary float-left mt-3" >
-                Logout
+              <i class="fas fa-sign-out-alt"></i>  Logout 
             </button>
         </form>
       </div>

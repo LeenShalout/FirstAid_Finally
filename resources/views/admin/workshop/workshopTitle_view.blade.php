@@ -32,7 +32,7 @@ Workshops Titles
         <div class="card">
                 <div class="card-header">
 
-                    <a href="{{route('AdminWorkshop.create')}}" style="background-color:#ff0000;" class="btn btn-primary float-right">Add Workshop</a>
+                    <a href="{{route('AdminWorkshop.create')}}"  style="background-color: #e13300; border-color: #e13300;" class="btn btn-primary float-right">Add Workshop</a>
 
                 </div>
                 <!-- /.card-header -->
@@ -57,12 +57,14 @@ Workshops Titles
             <td>{{$workshop->workshop_type}}</td>
             <td><img src="{{URL::asset("storage/image/".$workshop->photo)}}" alt="{{$workshop->photo}}" style="width:75px; height:75px"> </td>
             <td>
-            <a href="{{route('AdminWorkshop.edit',$workshop->id)}}"><i class="material-icons">&#xE254;</i></a>
+            <a href="{{route('AdminWorkshop.edit',$workshop->id)}} "  style="color: #e13300;"><i class="material-icons">&#xE254;</i></a>
 
             <form action="{{route('AdminWorkshop.destroy',$workshop->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit"><i class="material-icons"data-toggle="tooltip">&#xE872;</i></button>
+                                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;color: #e13300;">
+                                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                                    </button>
             </form>
             </td>
         </tr>

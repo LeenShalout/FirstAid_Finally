@@ -1,4 +1,7 @@
 <x-guest-layout>
+    @section('title')
+    Register
+    @endsection
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <h4 class="text-center" style="font-size: 1.4rem; font-weight: 600;">Create Account</h4>

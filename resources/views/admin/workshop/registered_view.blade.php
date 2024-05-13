@@ -69,7 +69,9 @@ Table
                         <form action="{{route('Registered.destroy',$registrations->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit"><i class="material-icons"data-toggle="tooltip">&#xE872;</i></button>
+                                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;color: #e13300;">
+                                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                                    </button>
                       </form>
                         </td>
                     </tr>

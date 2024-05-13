@@ -3,9 +3,9 @@
 }
 .navbar{
     background-color: transparent;
-    position: sticky;
+    /*position: sticky;*/
     width: 100%;
-    z-index: 9999;
+    /*z-index: 9999;*/
     top: 0;
     transition: background-color 0.3s ease;
 }
