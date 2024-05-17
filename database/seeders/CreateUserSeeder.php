@@ -31,6 +31,15 @@ class CreateUserSeeder extends Seeder
                 'location'=>'Amman, Jordan',
                 'Phone'=>'+96278467523802',
                 'role'=>1
+            ],
+            [
+                'name'=>'Leen',
+                'email' => 'Leen@gmail.com',
+                'password'=>bcrypt('Leenpass'),
+                'img'=>'profile.jpg',
+                'location'=>'Amman, Jordan',
+                'Phone'=>'+962775698743',
+                'role'=>1
             ]
             ];
 
