@@ -47,8 +47,9 @@ class UserWorkshopController extends Controller
     $registered->phone = $request->phone;
     $registered->save();
 
-    return redirect()->route('workshop.index')->with('success', 'Registration successful');
-}
+        return redirect('/workshop');
+
+    }
 
 
     /**

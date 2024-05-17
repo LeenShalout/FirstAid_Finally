@@ -160,34 +160,25 @@
                 </article>
 
             </div>
-            @endforeach
+
 
 
             <div class="col-md-3 mb40">
-                <div class="mb-4">
-                    <form>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                                aria-describedby="button-addon2">
-                            <button class="btn btn-primary" type="button" id="button-addon2"><i
-                                    class="bi bi-search"></i></button>
-                        </div>
-                    </form>
-                </div>
                 <!--/col-->
                 <div class="categories mb-4">
                     <h4 class="sidebar-title">Cases</h4>
                     <div class="categories-list">
                         <ul class="p-0 m-0">
-                            <li class="active"><i class="fa-solid fa-angle-right"></i><a href="{{ request()->is( route('mainCases', $case->id) ) ? 'active' : '' }}">Bleeding</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ request()->is( route('mainCases', $case->id) ) ? 'active' : '' }}">Burns</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ request()->is( route('mainCases', $case->id) ) ? 'active' : '' }}">Heat Stroke</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ request()->is( route('mainCases', $case->id) ) ? 'active' : '' }}">Shock</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ request()->is( route('mainCases', $case->id) ) ? 'active' : '' }}">Heart Attack</a></li>
-{{--                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ request()->is( route('mainCases', $case->id) ) ? 'active' : '' }}">Meningitis</a></li>--}}
-                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ request()->is( route('mainCases', $case->id) ) ? 'active' : '' }}">Strains and Sprains</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ request()->is( route('mainCases', $case->id) ) ? 'active' : '' }}">Unconscious and Breathing </a></li>
+                            @foreach($categories as $category)
+                                <li class="{{ request()->route('id') == $category->id ? 'active' : '' }}">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                    <a href="{{ route('case', $category->id) }}">
+                                        {{ $category->Title }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
+
                     </div>
                 </div>
                 <!--/col-->
@@ -198,43 +189,10 @@
                     </div>
                 </div>
 
-                {{-- <div>
-                    <h4 class="sidebar-title">Related Blogs</h4>
-                    <ul class="list-unstyled">
-                        <li class="media">
-                            <img class="d-flex mr-3 img-fluid" width="64" src="{{ asset('Images/vaccine.png') }}"
-                                alt="" class="img-fluid">
-                            <div class="media-body">
-                                <h5 class="mt-0 mb-1"><a href="https://wwwnc.cdc.gov/travel/page/routine-vaccines">Routine
-                                        Vaccines</a></h5>
-                                January 31, 2022
-                            </div>
-                        </li>
-                        <li class="media my-4">
-                            <img class="d-flex mr-3 img-fluid" width="64" src="{{ asset('Images/petstravel.jpg') }}"
-                                alt="" class="img-fluid">
-                            <div class="media-body">
-                                <h5 class="mt-0 mb-1"><a
-                                        href="https://www.cdc.gov/importation/traveling-with-pets.html">Traveling with
-                                        Pets</a></h5>
-                                May 26, 2022
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img class="d-flex mr-3 img-fluid" width="64" src="{{ asset('Images/firework.jpg') }}"
-                                alt="" class="img-fluid">
-                            <div class="media-body">
-                                <h5 class="mt-0 mb-1"><a
-                                        href="https://onlinefirstaid.com/firework-injuries-first-aid-tips/">Firework
-                                        Injuries</a></h5>
-                                March 15, 2017
-                            </div>
-                        </li>
-                    </ul>
-                </div> --}}
 
             </div>
 
         </div>
+        @endforeach
     </div>
 @endsection
