@@ -29,7 +29,7 @@ class UserContactController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         Contact::create([
             'Name' => $request->name,
             'Email' => $request->email,
@@ -37,7 +37,9 @@ class UserContactController extends Controller
            'user_id' => auth()->id()
         ]);
 
-        return response('done');
+        return redirect('/#contact');
+
+
     }
 
     /**

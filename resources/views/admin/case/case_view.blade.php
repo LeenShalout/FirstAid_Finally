@@ -21,7 +21,7 @@ Tables
 @endsection
 
 @section('titlePage2')
-Cases
+cases
 @endsection
 
 

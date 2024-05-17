@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{myProfileController, AuthController, User\UserProfileController};
+use App\Http\Controllers\{myProfileController, AuthController, SearchController, User\UserProfileController};
 use App\Http\Controllers\Auth\adminLoginController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminDashboardController;
@@ -25,7 +25,6 @@ use App\Http\Controllers\User\UserWorkshopController;
 // Admin Routes
 Route::get('/admin/dashboard', [AdminProfileController::class, "dashboard"])->name('dashboard');
 
-
 Route::get('/admin/ca', function () {
     return view('admin/ca');
 });
@@ -33,39 +32,32 @@ Route::get('/admin/ca', function () {
 Route::get('/admin/profile', [myProfileController::class, "myProfile"])->name('myProfile');
 
 
+Route::resource('contacts', ContactController::class);
 
-Route::resource(name:'contacts', controller:ContactController::class);
+Route::get('contacts/forcedelete/{id}',[ContactController::class,'forceDelete'])->name('contacts.forcedelete');
 
-Route::get('contacts/forcedelete/{id}',[ContactController::class,'forceDelete'])->name(name:'contacts.forcedelete');
+Route::get('contacts/restore/{id}',[ContactController::class,'restore'])->name('contacts.restore');
 
-Route::get('contacts/restore/{id}',[ContactController::class,'restore'])->name(name:'contacts.restore');
+Route::resource('users', UserController::class);
+Route::get('users/showDeletedUsers',[UserController::class,'showDeletedUsers'])->name('users.showDeletedUsers');
+Route::get('contacts/showDeletedContacts',[ContactController::class,'showDeletedContacts'])->name('contacts.showDeletedContacts');
+Route::get('experiences/showDeletedContacts',[ExperienceController::class,'showDeletedExperiences'])->name('experiences.showDeletedExperiences');
 
-Route::resource(name:'users', controller:UserController::class);
-Route::get('users/showDeletedUsers',[UserController::class,'showDeletedUsers'])->name(name:'users.showDeletedUsers');
-Route::get('contacts/showDeletedContacts',[ContactController::class,'showDeletedContacts'])->name(name:'contacts.showDeletedContacts');
-Route::get('experiences/showDeletedContacts',[ExperienceController::class,'showDeletedExperiences'])->name(name:'experiences.showDeletedExperiences');
+Route::get('users/restore/{id}',[UserController::class,'restore'])->name('users.restore');
 
-Route::get('users/restore/{id}',[UserController::class,'restore'])->name(name:'users.restore');
+Route::get('users/forcedelete/{id}',[UserController::class,'forceDelete'])->name('users.forcedelete');
 
-Route::get('users/forcedelete/{id}',[UserController::class,'forceDelete'])->name(name:'users.forcedelete');
+Route::resource('admins', AdminProfileController::class);
 
-Route::resource(name:'admins', controller:AdminProfileController::class);
+Route::resource('experiences', ExperienceController::class);
 
-Route::resource(name:'experiences', controller:ExperienceController::class);
+Route::get('experiences/forcedelete/{id}',[ExperienceController::class,'forceDelete'])->name('experiences.forcedelete');
 
-Route::get('experiences/forcedelete/{id}',[ExperienceController::class,'forceDelete'])->name(name:'experiences.forcedelete');
-
-Route::get('experiences/restore/{id}',[ExperienceController::class,'restore'])->name(name:'experiences.restore');
+Route::get('experiences/restore/{id}',[ExperienceController::class,'restore'])->name('experiences.restore');
 
 Route::get('adminLogin', [adminLoginController::class, 'create'])
 ->name('adminLogin');
 Route::post('adminLogin', [adminLoginController::class, 'store']);
-
-//Route::middleware(['auth','is_admin'])->group(function(){
-
-   // Route::get('/admin/dashboard', [AdminProfileController::class, "dashboard"])->name('dashboard');
-
-//});
 
 Route::middleware([])->group(function () {
 
@@ -81,7 +73,8 @@ Route::get('/', function () {
 })->name('indexUser');
 // Cases
 Route::get('/mainCases/{category}',[UserCaseController::class,'userIndex'])->name('mainCases');
-Route::get('/cases/{id}',[UserCaseController::class,'userCase'])->name('cases');
+Route::get('/case/{id}',[UserCaseController::class,'userCase'])->name('case');
+
 
 //Blogs
 Route::get('/blog/{id}', [UserBlogController::class, 'blogIndex'])->name('blog');
@@ -112,7 +105,6 @@ Route::get('experienceMyPostsEdit/{id}',[UserExperienceController::class,'edit']
 Route::get('experienceMyPosts',[UserExperienceController::class,'myPosts']);
 
 //Profile
-//Route::POST('profile/{id}', [UserProfileController::class, 'update'])->name('profile.update');
 Route::patch('profile/{id}', [UserProfileController::class, 'update'])->name('profile.update');
 
 
@@ -124,6 +116,8 @@ Route::resource('contact',UserContactController::class);
 Route::resource('workshop',UserWorkshopController::class);
 
 
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 
 

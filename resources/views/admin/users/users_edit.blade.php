@@ -30,7 +30,7 @@ User
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                        <form enctype="multipart/form-data"  action="{{ route('users.update',$user->id) }}" method="post">
+                        <form enctype="multipart/form-data" action="{{ route('users.update',$user->id) }}" method="post">
                             @method('PATCH')
                             @csrf
                         <!-- Your form elements here -->
@@ -46,19 +46,12 @@ User
                         <label for="dt">Password:</label>
                         <input type="password" class="form-control" id="password" name="password" minlength="8" placeholder="Enter your Password"value="{{ old('password', $user->password ?? '') }}">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="img">Image:</label>
                             <input type="file" class="form-control-file" id="img" name="img">
                             </div>
-                            {{-- <div class="form-group">
-                                <label for="img">Image:</label>
-                                <input type="file" class="form-control-file" id="img" name="img" 
-                                    @if ($user->img === 'img')
-                                        selected
-                                    @endif
-                                >
-                            </div> --}}
+
 
                             <div class="form-group">
                                 <label for="location">Location:</label>
@@ -87,8 +80,8 @@ User
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
-    
-      
+
+
     </div>
 
 @endsection
