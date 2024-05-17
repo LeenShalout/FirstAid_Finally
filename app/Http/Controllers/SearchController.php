@@ -15,6 +15,6 @@ class SearchController extends Controller
         $results = Mycase::where('Title', 'like', '%' . $keyword . '%')
             ->get();
 
-        return view('user.mainCases',compact('results'));
+//        return view('user.mainCases',compact('results'));
     }
 }

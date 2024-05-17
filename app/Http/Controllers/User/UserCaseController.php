@@ -4,28 +4,35 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\MyCase;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // Correct namespace
 
 class UserCaseController extends Controller
 {
-    public function userIndex($category)
+    public function userIndex(Request $request, $category)
     {
-        $cases = MyCase::where('Category', $category)->get();
-        return view('user.mainCases',compact('cases'));
+        $search = $request->input('search');
+
+        if ($search) {
+            $cases = MyCase::where('Category', $category)
+                ->where('Title', 'LIKE', "%" . $search . "%")
+                ->get();
+        } else {
+            $cases = MyCase::where('Category', $category)->get();
+        }
+
+        return view('user.mainCases', compact('cases'));
     }
     public function userCase($id)
     {
         $cases = MyCase::where('id', $id)->get();
-        return view('user.cases',compact('cases'));
+        $categories = MyCase::all();
+        return view('user.cases',compact('cases','categories'));
     }
-    public function search(Request $request)
-    {
-        $keyword = $request->input('keyword');
+//    public function userCategory()
+//    {
+//        $categories = MyCase::all();
+//        return view('user.cases',compact('categories'));
+//    }
 
-        $results = Mycase::where('Title', 'like', '%' . $keyword . '%')
-            ->get();
-
-        return view('user.mainCases',compact('results'));
-    }
 
 }

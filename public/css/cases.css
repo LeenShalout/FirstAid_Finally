@@ -213,7 +213,7 @@ font-weight: 300;
 /* color: #999; */
 padding: 5px 10px;
 }
-.categories-list ul li:hover{
+.list-inline-item{
 color: #D22B2B;
 }
 
