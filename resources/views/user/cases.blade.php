@@ -21,7 +21,7 @@
             @foreach($cases as $case)
             <div class="col-md-9">
                 <article>
-                    <img src="{{ asset('Images/' . $case->Photo) }}" alt="" class="img-fluid"
+                    <img src="{{ asset("storage/image/$case->Photo") }}" alt="" class="img-fluid"
                         style="width: 100%; height:40vh;">
                     <div class="post-content mt-2">
                         <h3 class="blog-title">{{$case->Title}}</h3>
