@@ -1,28 +1,3 @@
-@extends('admin.adminLayouts.masterPage')
-
-@section('title')
-Cases Table
-@stop
-
-@section('admin')
-Cases
-@endsection
-
-@section('example')
-Table
-@endsection
-
-@section('css')
-
-@endsection
-
-@section('titlePage1')
-Tables
-@endsection
-
-@section('titlePage2')
-Cases
-@endsection
 
 
 

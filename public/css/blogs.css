@@ -4,14 +4,38 @@
 body{
 background-color: #FDF8F4;
 }
-.blogs-img img{
-max-width: 100%;
- height: 100%;
+.blogs-img img {
+    max-width: 100%;
+    width: 100%;
+    height: 15rem;
+    margin-bottom: 1rem;
 }
 
-.blogs-img{
+.image-height {
+    max-width: 100%;
     width: 100%;
-  }
+    height: 100%;
+}
+
+/* Ensure there's no conflicting styles for .blogs-img img and .image-height */
+.blogs-img .image-height {
+    height: 100% !important;
+    width: 60rem;
+}
+
+
+/*.blogs-img img:nth-child(5n+3),*/
+/*.blogs-img img:nth-child(5n+4),*/
+/*.blogs-img img:nth-child(5n+5) {*/
+/*    max-width: 100%;*/
+/*    height: 15rem;*/
+/*    width: 100%;*/
+/*}*/
+
+
+/*.blogs-img{*/
+/*    width: 100%;*/
+/*  }*/
 /*
   .blogs-img img {
     width: 100%;
@@ -61,7 +85,28 @@ fill: #FDF8F4;
     transform: scaleX(-1);
 
 }
-
+/* blogs.css */
+.category-pet{
+    background-color: #BAAFD7;
+}
+.category-psychological {
+    background-color: #EE9392;
+}
+.category-special-needs {
+    background-color: #FBF8CC;
+}
+.category-travel {
+    background-color: #E981A4;
+}
+.category-food {
+    background-color: #BDE0FE;
+}
+.category-big-occasions {
+    background-color: #D9EDE7;
+}
+.category-equipment {
+    background-color: #F6EEE9;
+}
 
 
 
@@ -203,13 +248,10 @@ color: #999;
 font-size: 13px;
 }
 
-/*.post-meta li:hover {*/
-/*color: #D22B2B;*/
-/*}*/
-list-inline-item:hover{
-    color: #D22B2B;
-
+.post-meta li:hover {
+color: #D22B2B;
 }
+
 
 
 .post-meta li i {

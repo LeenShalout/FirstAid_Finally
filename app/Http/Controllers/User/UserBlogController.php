@@ -14,10 +14,21 @@ class UserBlogController extends Controller
         $blogs = Blog::whereIn('id', function ($query) {
             $query->selectRaw('MIN(id)')
                 ->from('blogs')
-                ->groupBy('Category');})->get();
+                ->whereIn('Category', ['Big Occasions', 'Psychological'])
+                ->whereNull('Photo')
+                ->groupBy('Category');
+        })
+            ->orWhereNotIn('Category', ['Big Occasions', 'Psychological'])
+            ->whereIn('id', function ($query) {
+                $query->selectRaw('MIN(id)')
+                    ->from('blogs')
+                    ->groupBy('Category');
+            })
+            ->get();
 
 
-    return view('user.mainBlogs',compact('blogs'));
+
+        return view('user.mainBlogs',compact('blogs'));
 
     }
 
@@ -36,4 +47,26 @@ class UserBlogController extends Controller
         return view('user.blogs',compact('blogs'));
 
     }
+
+    public static function facebookShare($url)
+    {
+        return "https://www.facebook.com/sharer/sharer.php?u=" . urlencode($url);
+    }
+
+    public static function whatsappShare($text)
+    {
+        return "whatsapp://send?text=" . urlencode($text);
+    }
+
+    public static function pinterestShare($url, $image, $description)
+    {
+        return "https://pinterest.com/pin/create/button/?url=" . urlencode($url) . "&media=" . urlencode($image) . "&description=" . urlencode($description);
+    }
+
+    public static function twitterShare($url, $text)
+    {
+        return "https://twitter.com/intent/tweet?url=" . urlencode($url) . "&text=" . urlencode($text);
+    }
+
+
 }

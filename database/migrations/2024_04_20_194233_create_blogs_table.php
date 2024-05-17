@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('Intro');
             $table->text('Steps');
             $table->text('MainImg');
-            $table->text('Photo');
+            $table->text('Photo')->nullable();
             $table->text('Conclusion');
             $table->timestamps();
         });

@@ -51,7 +51,7 @@ class UserExperienceController extends Controller
         $experience->user_id = auth()->user()->id;
         $experience->save();
 
-        return response('Added Successfully');
+        return redirect('/experienceAllPosts');
     }
 
 
@@ -107,7 +107,7 @@ class UserExperienceController extends Controller
         $experience->user_id = Auth::id(); // Assigning the authenticated user's ID to the user_id field
         $experience->save();
 
-        return response('Edited Successfully');
+        return redirect('/experienceMyPosts');
 
 //        return redirect()->route('experienceMyPosts')->with('success', 'Experience updated successfully');
     }
@@ -118,8 +118,8 @@ class UserExperienceController extends Controller
     public function destroy($id)
     {
         Experience::destroy($id);
-        // return redirect()->route('experienceMyPosts');
-        return response('Deleted Successfully');
+        return redirect('/experienceMyPosts');
+
 
 
     }
