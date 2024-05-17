@@ -3,13 +3,13 @@
 }
 .navbar{
     background-color: transparent;
-    position: sticky;
+    /*position: sticky;*/
     width: 100%;
-    z-index: 9999;
+    /*z-index: 9999;*/
     top: 0;
     transition: background-color 0.3s ease;
 }
-.navbar.active {
+nav.active {
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,0.7903361173570991) 0%, rgba(255,253,224,1) 100%);
 }

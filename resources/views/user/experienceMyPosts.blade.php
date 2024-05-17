@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="media-body">
-                                <p class="text-secondary">{{ $myPost->user->Post }}</p>
+                                <p class="text-secondary">{{ $myPost->Post }}</p>
                                 @if ($myPost->Img)
                                     <img src="{{ asset('storage/image/'.$myPost->Img) }}" alt="" style="height:15rem; width:30rem;">
                                 @endif

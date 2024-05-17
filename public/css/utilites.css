@@ -43,13 +43,13 @@ ul{
 }
 
 /* category */
-.category-1,
-.category-2,
-.category-3,
-.category-4,
-.category-5,
-.category-6,
-.category-7{
+.category-pet,
+.category-psychological,
+.category-special-needs,
+.category-travel,
+.category-food,
+.category-big-occasions,
+.category-equipment{
     border-radius: 15px;
     width: fit-content;
     /*padding: 0rem 1rem;*/
@@ -58,29 +58,29 @@ ul{
     padding: 0rem 1rem;
 }
 .category-padding{
-    padding: 0rem 1rem;
+    padding: 0.25rem 1rem;
 }
 .category-select-padding{
     padding: 1rem 1rem;
 }
-.category-1{
-    background-color:#BAAFD7;
-}
-.category-2{
-    background-color:#EE9392;
-}
-.category-3{
-    background-color:#FADEE1;
-}
-.category-4{
-    background-color:#E981A4;
-}
-.category-5{
-    background-color:#FADEE1;
-}
-.category-6{
-    background-color:#D9EDE7;
-}
-.category-7{
-    background-color:#F6EEE9;
-}
+/*.category-1{*/
+/*    background-color:#BAAFD7;*/
+/*}*/
+/*.category-2{*/
+/*    background-color:#EE9392;*/
+/*}*/
+/*.category-3{*/
+/*    background-color:#FADEE1;*/
+/*}*/
+/*.category-4{*/
+/*    background-color:#E981A4;*/
+/*}*/
+/*.category-5{*/
+/*    background-color:#FADEE1;*/
+/*}*/
+/*.category-6{*/
+/*    background-color:#D9EDE7;*/
+/*}*/
+/*.category-7{*/
+/*    background-color:#F6EEE9;*/
+/*}*/

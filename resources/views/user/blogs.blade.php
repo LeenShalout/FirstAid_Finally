@@ -17,8 +17,8 @@
             <div class="col-md-9">
                 @foreach($blogs as $blog)
                     <article>
-                        <img src="{{ asset('Images/' . $blog->MainImg) }}" alt="" class="img-fluid" style="width: 100%; height:23rem;">
-                        <div class="post-content mt-2">
+                        <img src="{{ asset("storage/image/$blog->MainImg") }}" alt="" class="img-fluid" style="width: 100%; height:23rem;">
+                        <div class="post-content mt-3">
                             <h3 class="blog-title">{{ $blog->Title }}</h3>
                             <ul class="post-meta list-inline">
                                 <li class="list-inline-item">
@@ -28,22 +28,22 @@
                             <ul class="list-inline share-buttons">
                                 <li class="list-inline-item">Share Blog:</li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::facebookShare(url()->current()) }}" target="_blank">
                                         <img src="{{ asset('Images/facebook.png') }}" class="social-media-img" alt="">
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::twitterShare(url()->current(), $blog->title) }}" target="_blank">
                                         <img src="{{ asset('Images/twitter.png') }}" class="social-media-img" alt="">
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::pinterestShare(url()->current(), $blog->image, $blog->description) }}" target="_blank">
                                         <img src="{{ asset('Images/pinterest.png') }}" class="social-media-img" alt="">
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">
+                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::whatsappShare($blog->title . ' - ' . url()->current()) }}">
                                         <img src="{{ asset('Images/whatsapp.png') }}" class="social-media-img" alt="">
                                     </a>
                                 </li>
@@ -75,14 +75,14 @@
             </div>
 
             <div class="col-md-3 mb40">
-                <div class="mb-4">
-                    <form>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
-                            <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
-                        </div>
-                    </form>
-                </div>
+{{--                <div class="mb-4">--}}
+{{--                    <form>--}}
+{{--                        <div class="input-group">--}}
+{{--                            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">--}}
+{{--                            <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
                 <!--/col-->
                 <div class="categories mb-4">
                     <h4 class="sidebar-title">Categories</h4>
@@ -91,10 +91,10 @@
                             <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Pets') }}">Pets</a></li>
                             <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Psychological') }}">Psychological</a></li>
                             <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'People with Special Needs') }}">People with Special Needs</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Big Occasions') }}">Big Occasions</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Equipment') }}">Equipment</a></li>
                             <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Travel') }}">Travel</a></li>
                             <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Food') }}">Food</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Big Occasions') }}">Big Occasions</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="{{ route('mainBlogs', 'Equipment') }}">Equipment</a></li>
                         </ul>
                     </div>
                 </div>
