@@ -20,7 +20,16 @@ class CreateUserSeeder extends Seeder
                 'img'=>'profile.jpg',
                 'location'=>'Amman',
                 'Phone'=>'+96276770656454',
-                'role'=>0
+                'role'=>1
+            ],
+            [
+                'name'=>'Lana',
+                'email' => 'lana@gmail.com',
+                'password'=>bcrypt('lanapass'),
+                'img'=>'profile.jpg',
+                'location'=>'Amman',
+                'Phone'=>'+9627626283836',
+                'role'=>1
             ],
 
             [
@@ -30,7 +39,7 @@ class CreateUserSeeder extends Seeder
                 'img'=>'profile.jpg',
                 'location'=>'Amman, Jordan',
                 'Phone'=>'+96278467523802',
-                'role'=>1
+                'role'=>0
             ],
             [
                 'name'=>'Leen',
