@@ -76,6 +76,7 @@ Route::get('/mainCases/{category}',[UserCaseController::class,'userIndex'])->nam
 Route::get('/case/{id}',[UserCaseController::class,'userCase'])->name('case');
 
 
+
 //Blogs
 Route::get('/blog/{id}', [UserBlogController::class, 'blogIndex'])->name('blog');
 Route::get('/mainBlogs',[UserBlogController::class,'index'])->name('mainBlogs');

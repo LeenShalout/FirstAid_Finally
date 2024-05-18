@@ -92,7 +92,7 @@ class UserExperienceController extends Controller
             }
 
             // Upload the new image
-            $imagePath = $request->file('experienceImage')->store('public/image');
+            $imagePath = $request->file('experienceImage')->store('storage/image');
 
             // Get the image name
             $imageName = basename($imagePath);

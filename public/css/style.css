@@ -118,6 +118,10 @@ object-fit: cover;
     height: 8rem;
     width: 11rem;
 }
+.blogs-body img:hover{
+    transform: rotateY(360deg);
+    transition: width 2s, height 2s, transform 2s;
+}
 .blogs-body .col{
     flex: 0;
     padding: 10px;

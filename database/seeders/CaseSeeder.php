@@ -33,25 +33,13 @@ class CaseSeeder extends Seeder
                 'Title' => 'Burns',
                 'Intro' =>'Burns can result from exposure to heat, chemicals, electricity, or radiation. Knowing how to respond to burns promptly is essential for minimizing pain, preventing infection, and promoting healing.',
                 'Signs'=>'Redness, swelling, and blistering at the site of the burn. /Severe pain or discomfort. /Peeling or loss of skin in severe burns. ',
-                'Treatment_Procedures'=>" Remove the person from the source of the burn and eliminate any clothing or jewelry near the affected area. If the burn is caused by a chemical, rinse the area with cool water for at least 10-20 minutes. / 
-                Place the burned area under cool (not cold) running water for 10-15 minutes, or until the pain subsides. Avoid using ice, as it can further damage the skin. / 
+                'Treatment_Procedures'=>" Remove the person from the source of the burn and eliminate any clothing or jewelry near the affected area. If the burn is caused by a chemical, rinse the area with cool water for at least 10-20 minutes. /
+                Place the burned area under cool (not cold) running water for 10-15 minutes, or until the pain subsides. Avoid using ice, as it can further damage the skin. /
                 Cover the burn with a sterile, non-adhesive dressing or a clean cloth. Avoid applying any ointments or creams to the burn, as they can trap heat and increase the risk of infection. /
                 For severe burns, burns to the face, hands, feet, or genital area, or burns covering a large area of the body, seek medical attention immediately",
                 'Prevention_Tips'=>'Use caution when working with hot objects or liquids. /Keep children away from hot surfaces, such as stoves and heaters. / Test the temperature of bathwater before bathing. / Avoid smoking in bed. / Install smoke detectors in your home and check them regularly. / Keep a first aid kit stocked with supplies for treating burns.',
                 'Photo'=>'burnsCases.jpeg',
                 'Video'=>'https://www.youtube.com/embed/z_5tuB1YMK0?si=O6OnO9EURynFos5H',
-            ],
-            [
-                'MainPhoto' => 'HeatStrokeCases.jpeg',
-                'Description' => 'Heat stroke is the bodys failure to regulate temperature due to prolonged exposure to high heat.',
-                'Category' => 'Human_Body',
-                'Title' => 'Heat Stroke',
-                'Intro' =>'Heat stroke is a serious and potentially life-threatening condition that occurs when the bodys temperature regulation system fails due to prolonged exposure to high temperatures. It requires immediate medical attention. Here is what you need to know about recognizing and treating heat stroke. ',
-                'Signs'=>'High body temperature (usually 104°F or higher). / Hot, dry skin or profuse sweating. /Rapid pulse. /Headache, dizziness, or nausea. /Confusion, agitation, or unconsciousness. /Muscle cramps or weakness.',
-                'Treatment_Procedures'=>"Immediately move the person to a cooler environment, preferably indoors with air conditioning. If that's not possible, find a shaded area. /Remove excess clothing and apply cool, wet cloths or towels to the skin. Fan the person to promote sweating and evaporation. /Offer the person cool water or a sports drink to help rehydrate. Avoid alcohol and caffeine. /Continuously monitor their temperature and watch for signs of deterioration. If the person loses consciousness, call emergency services immedia",
-                'Prevention_Tips'=>'Stay hydrated by drinking plenty of fluids, especially water, during hot weather. / Avoid strenuous activities during the hottest part of the day. Wear lightweight, light-colored, and loose-fitting clothing.  Take regular breaks in the shade or indoors during hot weather.  Never leave children or pets unattended in parked vehicles.  Be aware of the signs of heat-related illnesses and take action if you or someone else shows symptoms',
-                'Photo'=>'HeatStroke.jpeg',
-                'Video'=>'https://www.youtube.com/embed/lEOC_vccLSE?si=qQQLOCn-BAq6DTGW',
             ],
             [
                 'MainPhoto' => 'shock.jpeg',
@@ -79,15 +67,27 @@ class CaseSeeder extends Seeder
             ],
             [
                 'MainPhoto' => 'Unconscious.jpeg',
-                'Description' => 'Unconsciousness can result from various medical conditions such as head injury, stroke, seizures, drug overdose, or heart attack.',
+                'Description' => 'Unconsciousness can result from various medical conditions such as stroke, seizures, drug overdose, or heart attack.',
                 'Category' => 'Human_Body',
-                'Title' => 'Unconscious and Breathing',
+                'Title' => 'Unconscious',
                 'Intro' =>'Encountering someone who is unconscious but breathing is a critical situation that requires immediate attention. Understanding how to respond effectively can help maintain the persons airway and breathing until professional medical help arrives.',
                 'Signs'=>"The person does not respond to verbal or physical stimuli. /Chest movements indicate breathing, but the person is unresponsive. / The person may exhibit symptoms of shock, such as pale, cool, clammy skin, and a weak pulse.",
                 'Treatment_Procedures'=>"Ensure the area is safe for both you and the unconscious person. Look for hazards such as traffic, fire, or electrical wires. /Gently shake the person's shoulders and ask loudly, 'Are you okay?' Look, listen, and feel for breathing. /If the person is not breathing, place them on their back and tilt their head back and lift their chin to open the airway. /Look for chest movement, listen for breathing sounds, and feel for breath on your cheek. /If the person is not breathing, or if you're unsure, call emergency services immediately. If someone else is present, have them make the call while you begin first aid. /If the person is not breathing normally, give two slow breaths, each lasting about 1 second, while watching for chest rise. If their chest doesn't rise, reposition the head and try again. /If you cannot detect a pulse, start CPR immediately.",
                 'Prevention_Tips'=>"Learn basic CPR and first aid skills to be prepared for emergencies. /Keep emergency contact numbers handy and know how to access them quickly. /Regularly check the expiration dates of your CPR certification and renew as necessary. /Encourage others to learn CPR and basic first aid skills.",
                 'Photo'=>'UnconsciousCase.jpeg',
                 'Video'=>'https://www.youtube.com/embed/bjnCp0enmwU?si=rdoxOCjGkbZSrbod',
+            ],
+            [
+                'MainPhoto' => 'HeatStrokeCases.jpeg',
+                'Description' => 'Heat stroke is the bodys failure to regulate temperature due to prolonged exposure to high heat.',
+                'Category' => 'Human_Body',
+                'Title' => 'Heat Stroke',
+                'Intro' =>'Heat stroke is a serious and potentially life-threatening condition that occurs when the bodys temperature regulation system fails due to prolonged exposure to high temperatures. It requires immediate medical attention. Here is what you need to know about recognizing and treating heat stroke. ',
+                'Signs'=>'High body temperature (usually 104°F or higher). / Hot, dry skin or profuse sweating. /Rapid pulse. /Headache, dizziness, or nausea. /Confusion, agitation, or unconsciousness. /Muscle cramps or weakness.',
+                'Treatment_Procedures'=>"Immediately move the person to a cooler environment, preferably indoors with air conditioning. If that's not possible, find a shaded area. /Remove excess clothing and apply cool, wet cloths or towels to the skin. Fan the person to promote sweating and evaporation. /Offer the person cool water or a sports drink to help rehydrate. Avoid alcohol and caffeine. /Continuously monitor their temperature and watch for signs of deterioration. If the person loses consciousness, call emergency services immedia",
+                'Prevention_Tips'=>'Stay hydrated by drinking plenty of fluids, especially water, during hot weather. / Avoid strenuous activities during the hottest part of the day. Wear lightweight, light-colored, and loose-fitting clothing.  Take regular breaks in the shade or indoors during hot weather.  Never leave children or pets unattended in parked vehicles.  Be aware of the signs of heat-related illnesses and take action if you or someone else shows symptoms',
+                'Photo'=>'HeatStroke.jpeg',
+                'Video'=>'https://www.youtube.com/embed/lEOC_vccLSE?si=qQQLOCn-BAq6DTGW',
             ],
              ////////
 
@@ -151,7 +151,7 @@ class CaseSeeder extends Seeder
                 'Photo'=>'SpiderBitesCase.jpeg',
                 'Video'=>'https://www.youtube.com/embed/Bl4umLwUpWs?si=8G6QGJBLISCcWSJG',
             ],
-           
+
 
             ///////////
 

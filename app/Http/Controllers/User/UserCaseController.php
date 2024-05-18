@@ -22,17 +22,25 @@ class UserCaseController extends Controller
 
         return view('user.mainCases', compact('cases'));
     }
+
+
     public function userCase($id)
     {
-        $cases = MyCase::where('id', $id)->get();
-        $categories = MyCase::all();
-        return view('user.cases',compact('cases','categories'));
+        // Retrieve the specific case based on the provided ID
+        $case = MyCase::findOrFail($id);
+
+        // Retrieve all cases that belong to the same category as $case
+        $cases = MyCase::where('Category', $case->Category)
+            ->where('id', '<>', $id)
+            ->orWhere('id', '=', $id)
+        ->get();
+
+        // Pass the specific case and related cases to the view
+        return view('user.cases', compact('case', 'cases'));
     }
-//    public function userCategory()
-//    {
-//        $categories = MyCase::all();
-//        return view('user.cases',compact('categories'));
-//    }
+
+
+
 
 
 }
