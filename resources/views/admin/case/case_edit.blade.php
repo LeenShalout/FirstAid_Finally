@@ -30,6 +30,15 @@ Cases
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('AdminCase.update', $case->id) }}" enctype="multipart/form-data" id="updateCaseForm">
                         @method('PUT') <!-- Specify the HTTP method -->
                         @csrf <!-- CSRF protection -->
@@ -48,6 +57,12 @@ Cases
                             <label for="Title">Title:</label>
                             <input type="text" class="form-control" id="Title" name="Title" value="{{ $case->Title }}">
                         </div>
+                        <div class="form-group">
+
+                            <label for="photo">Main Photo:</label>
+                            <input type="file" class="form-control-file" id="" name="MainPhoto" value="{{ $case->MainPhoto }}">
+
+                    </div>
 
                         <div class="form-group">
                             <label for="intro">Description:</label>

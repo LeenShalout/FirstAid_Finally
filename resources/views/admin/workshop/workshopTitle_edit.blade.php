@@ -32,6 +32,15 @@ Workshops
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
+                  @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form method="POST" enctype="multipart/form-data"  action="{{ route('AdminWorkshop.update',$workshops->id) }}">
                         <!-- Your form elements here -->
                         @method('PUT')
