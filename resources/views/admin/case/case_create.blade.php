@@ -31,7 +31,7 @@ Cases
             <div class="card">
                 <div class="card-body" style="overflow-x: scroll">
 
-                    <!-- Display validation errors if any -->
+                    
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
