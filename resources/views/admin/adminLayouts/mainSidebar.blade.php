@@ -169,7 +169,7 @@
             <a href="{{route('users.create')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Users form
+                Users/ Admins Form
               </p>
             </a>
           </li>

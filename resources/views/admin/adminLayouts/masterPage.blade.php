@@ -60,176 +60,134 @@
 @include('admin.adminLayouts.footerScripts')
 
 <script>
-  $(function () {
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
+ $(function () {
+  /* ChartJS
+   * -------
+   * Here we will create a few charts using ChartJS
+   */
 
-    //--------------
-    //- AREA CHART -
-    //--------------
+  //--------------
+  //- AREA CHART -
+  //--------------
 
-    // Get context with jQuery - using jQuery's .get() method.
-    //var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-
-    var areaChartData = {
-      labels  : ['Cases', 'Blogs', 'Workshops', 'Experiences'],
-      datasets: [
-        {
-          label               : '',
-          backgroundColor     : 'rgba(225,51,0,255)',
-          borderColor         : 'rgba(225,51,0,255)',
-          pointRadius          : false,
-          pointColor          : '#e13300',
-          pointStrokeColor    : 'rgba(225,51,0,255)',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(225,51,0,255)',
-          data                : [48, 28, 30, 19, 86, 27, 90]
-        },
-        {}
-      ]
-    }
-
-    var areaChartOptions = {
-      maintainAspectRatio : false,
-      responsive : true,
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }],
-        yAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }]
+  var areaChartData = {
+    labels  : ['Cases', 'Blogs', 'Workshops', 'Experiences'],
+    datasets: [
+      {
+        label               : 'This Month',
+        backgroundColor     : 'rgba(225,51,0,255)',
+        borderColor         : 'rgba(225,51,0,255)',
+        pointRadius          : false,
+        pointColor          : '#e13300',
+        pointStrokeColor    : 'rgba(225,51,0,255)',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgba(225,51,0,255)',
+        data                : [48, 28, 30, 19, 86, 27, 90]
       }
-    }
+    ]
+  }
 
-    // This will get the first returned node in the jQuery collection.
-    // new Chart(areaChartCanvas, {
-    //   type: 'line',
-    //   data: areaChartData,
-    //   options: areaChartOptions
-    // })
-
-    //-------------
-    //- LINE CHART -
-    //--------------
-    //var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-    var lineChartOptions = $.extend(true, {}, areaChartOptions)
-    var lineChartData = $.extend(true, {}, areaChartData)
-    lineChartData.datasets[0].fill = false;
-    lineChartData.datasets[1].fill = false;
-    lineChartOptions.datasetFill = false
-
-    // var lineChart = new Chart(lineChartCanvas, {
-    //   type: 'line',
-    //   data: lineChartData,
-    //   options: lineChartOptions
-    // })
-
-    //-------------
-    //- DONUT CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    //var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    var donutData        = {
-      labels: [
-          'Human Body',
-          'Natural Disasters',
-          'Animal-Related Injuries',
-          '',
-      ],
-      datasets: [
-        {
-          data: [50,70,40],
-          backgroundColor : [ '#e13300', '#808080','#F8DFDB' ],
+  var areaChartOptions = {
+    maintainAspectRatio : false,
+    responsive : true,
+    legend: {
+      display: false
+    },
+    scales: {
+      xAxes: [{
+        gridLines : {
+          display : false,
         }
-      ]
+      }],
+      yAxes: [{
+        gridLines : {
+          display : false,
+        }
+      }]
     }
-    var donutOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    // new Chart(donutChartCanvas, {
-    //   type: 'doughnut',
-    //   data: donutData,
-    //   options: donutOptions
-    // })
+  }
 
-    //-------------
-    //- PIE CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-    var pieData        = donutData;
-    var pieOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(pieChartCanvas, {
-      type: 'pie',
-      data: pieData,
-      options: pieOptions
-    })
+  //-------------
+  //- LINE CHART -
+  //--------------
+  var lineChartOptions = $.extend(true, {}, areaChartOptions)
+  var lineChartData = $.extend(true, {}, areaChartData)
+  lineChartData.datasets[0].fill = false;
 
-    //-------------
-    //- BAR CHART -
-    //-------------
-    //var barChartCanvas = $('#barChart').get(0).getContext('2d')
-    var barChartData = $.extend(true, {}, areaChartData)
-    var temp0 = areaChartData.datasets[0]
-    var temp1 = areaChartData.datasets[1]
-    //barChartData.datasets[0] = temp1
-    barChartData.datasets[1] = temp0
-
-    var barChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      datasetFill             : false
-    }
-
-    // new Chart(barChartCanvas, {
-    //   type: 'bar',
-    //   data: barChartData,
-    //   options: barChartOptions
-    // })
-
-    //---------------------
-    //- STACKED BAR CHART -
-    //---------------------
-    var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
-    var stackedBarChartData = $.extend(true, {}, barChartData)
-
-    var stackedBarChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
-        }]
+  //-------------
+  //- DONUT CHART -
+  //-------------
+  var donutData        = {
+    labels: [
+        'Human Body',
+        'Natural Disasters',
+        'Animal-Related Injuries',
+        
+    ],
+    datasets: [
+      {
+        data: [50,70,40],
+        backgroundColor : [ '#e13300', '#808080','#F8DFDB' ],
       }
-    }
+    ]
+  }
+  var donutOptions     = {
+    maintainAspectRatio : false,
+    responsive : true,
+  }
 
-    new Chart(stackedBarChartCanvas, {
-      type: 'bar',
-      data: stackedBarChartData,
-      options: stackedBarChartOptions
-    })
+  //-------------
+  //- PIE CHART -
+  //-------------
+  var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+  var pieData        = donutData;
+  var pieOptions     = {
+    maintainAspectRatio : false,
+    responsive : true,
+  }
+  new Chart(pieChartCanvas, {
+    type: 'pie',
+    data: pieData,
+    options: pieOptions
   })
+
+  //-------------
+  //- BAR CHART -
+  //-------------
+  var barChartData = $.extend(true, {}, areaChartData)
+
+  var barChartOptions = {
+    responsive              : true,
+    maintainAspectRatio     : false,
+    datasetFill             : false
+  }
+
+  //---------------------
+  //- STACKED BAR CHART -
+  //---------------------
+  var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+  var stackedBarChartData = $.extend(true, {}, barChartData)
+
+  var stackedBarChartOptions = {
+    responsive              : true,
+    maintainAspectRatio     : false,
+    scales: {
+      xAxes: [{
+        stacked: true,
+      }],
+      yAxes: [{
+        stacked: true
+      }]
+    }
+  }
+
+  new Chart(stackedBarChartCanvas, {
+    type: 'bar',
+    data: stackedBarChartData,
+    options: stackedBarChartOptions
+  })
+})
+
 </script>
 </body>
 </html>
