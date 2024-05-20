@@ -76,6 +76,7 @@ Route::get('/mainCases/{category}',[UserCaseController::class,'userIndex'])->nam
 Route::get('/case/{id}',[UserCaseController::class,'userCase'])->name('case');
 
 
+
 //Blogs
 Route::get('/blog/{id}', [UserBlogController::class, 'blogIndex'])->name('blog');
 Route::get('/mainBlogs',[UserBlogController::class,'index'])->name('mainBlogs');
@@ -103,6 +104,8 @@ Route::get('/experienceLatest',[UserExperienceController::class, 'latestPosts'] 
 Route::get('experienceMyPostsDelete/{id}',[UserExperienceController::class,'destroy'])->name('experience.delete');
 Route::get('experienceMyPostsEdit/{id}',[UserExperienceController::class,'edit'])->name('experience.edit');
 Route::get('experienceMyPosts',[UserExperienceController::class,'myPosts']);
+Route::get('/searchExperience', [UserExperienceController::class, 'index'])->name('searchExperience');
+
 
 //Profile
 Route::patch('profile/{id}', [UserProfileController::class, 'update'])->name('profile.update');

@@ -41,14 +41,19 @@
         <section id="cases" class="container-xxl">
             <div class="cards d-flex justify-content-center align-items-center pt-5 flex-wrap">
                 @foreach($cases as $case)
-                    <div class="card" style="width: 23rem; background-image: url('{{ asset('storage/image/' . $case->MainPhoto) }}'); background-repeat: no-repeat; background-position: top center; background-size: cover;">
-                        <div class="card-body">
-                            <h3 class="card-title text-center">{{$case->Title}}</h3>
-                            <p class="card-text text-center">{{$case->Description}}</p>
-                            <div class="d-flex justify-content-center">
-                                <a href="/case/{{$case->id}}"><button type="button" class="btn btn-primary">Read More <i class="bi bi-arrow-down-right-circle"></i></button></a>
-                            </div>
+
+
+                    <div class="card" style="width: 23rem; height: 26rem">
+                        <div class="card-img d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('storage/image/' . $case->MainPhoto) }}" class="mt-4 mx-3" alt="...">
                         </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{$case->Title}}</h3>
+                            <hr>
+                            <p class="card-text">{{$case->Description}}</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="/case/{{$case->id}}"><button type="button" class="btn btn-primary my-1">Read More <i class="bi bi-arrow-down-right-circle"></i></button></a>
+                            </div>                        </div>
                     </div>
                 @endforeach
             </div>

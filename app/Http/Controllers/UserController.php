@@ -131,12 +131,12 @@ class UserController extends Controller
         // if ($request->hasFile('img')=="true") {
         //     $user->update([
 
-            // ]);
+        // ]);
 
         // }
 
 
-  return redirect()->route('users.index');
+        return redirect()->route('users.index');
 
     }
 
@@ -153,20 +153,20 @@ class UserController extends Controller
     public function showDeletedUsers(){
 
         $users=User::whereNotNull('deleted_at')->get();
-return view('admin.users.users_soft_delete',compact('users'));
+        return view('admin.users.users_soft_delete',compact('users'));
     }
 
     public function restore($id){
         User::withTrashed()->where('id',$id)
-       ->restore();
+            ->restore();
         return redirect()->route('users.index');
-       // return view('admin.users.users_edit',compact(var_name:'id'));
+        // return view('admin.users.users_edit',compact(var_name:'id'));
     }
 
     public function forceDelete($id)
     {
         User::withTrashed()->where('id',$id)
-        ->forceDelete();
-         return redirect()->route('users.index');
+            ->forceDelete();
+        return redirect()->route('users.index');
     }
 }

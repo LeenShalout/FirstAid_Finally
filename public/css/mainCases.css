@@ -17,61 +17,25 @@ body{
     margin: auto 2rem;
 }
 .cases-container .card{
-    height: 400px;
-    /*background: url('/Images/bleeding.jpg') no-repeat top center/cover;*/
-    /*background: url('<?= (isset($case->Photo))?asset('images/') . $case->Photo ?>') no-repeat top center/cover;*/
-
-    /*background-position: top;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
     border-radius: 20px;
-    overflow: hidden;
-    /* display: flex;
-    align-items: flex-end; */
     border: 1px solid #d3d3d3;
     margin-bottom: 1rem;
 }
 .card-body{
-    position: relative;
-    padding: 20px;
-    background-color: #fff;
-    border-top-left-radius: 20px;
     cursor: pointer;
-    transform: translateY(47%);
-    transition: transform 0.3s;
 }
-.card-body::before{
-    content: '';
-    position: absolute;
-    top: -52px;
-    right: -48px;
-    width: 100px;
-    height: 100px;
-    display: block;
-    border-radius: 50%;
-    box-shadow: inset -48px -48px #fff;
+.card-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transition: 0.5s all ease-in-out;
+}
+.card-img img:hover{
+    transform: scale(1.04);
+}
+.card-img {
+    height: 11rem;
 }
 .card-text{
-    font-weight: light;
+    height: 5.5rem;
 }
-.card-list li{
-    background-color: #cccccc;
-    border-radius: 5px;
-    padding: 4px;
-    margin-right: 10px;
-}
-.card-body:hover{
-    transform: translateY();
-}
-/* @media (max-width: 992px) {
-    .cases-container .cards{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-} */
-
-/* footer */
-/* #footer{
-    background: #E8E8E8;
-} */
