@@ -65,7 +65,7 @@
 
 
             @else
-            <div class="signup">
+            <div class="signup d-none d-md-block ">
                 <button class="btn btn-outline-primary"><a href="{{route('login')}}">Sign In </a><i
                         class="bi bi-person-fill"></i></button>
             </div>

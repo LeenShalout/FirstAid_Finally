@@ -37,17 +37,17 @@
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::twitterShare(url()->current(), $blog->title) }}" target="_blank">
+                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::twitterShare(url()->current(), $blog->Title) }}" target="_blank">
                                         <img src="{{ asset('Images/twitter.png') }}" class="social-media-img" alt="">
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::pinterestShare(url()->current(), $blog->image, $blog->description) }}" target="_blank">
+                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::pinterestShare(url()->current(), $blog->MainImg, $blog->Description) }}" target="_blank">
                                         <img src="{{ asset('Images/pinterest.png') }}" class="social-media-img" alt="">
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::whatsappShare($blog->title . ' - ' . url()->current()) }}">
+                                    <a href="{{ \App\Http\Controllers\User\UserBlogController::whatsappShare($blog->Title . ' - ' . url()->current()) }}">
                                         <img src="{{ asset('Images/whatsapp.png') }}" class="social-media-img" alt="">
                                     </a>
                                 </li>

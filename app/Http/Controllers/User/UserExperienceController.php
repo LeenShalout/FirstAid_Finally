@@ -4,22 +4,34 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Experience;
+use App\Models\MyCase;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class UserExperienceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $experiences = Experience::all();
 
-        return view('user.experienceAllPosts',compact('experiences'));
+
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+
+        // Fetch experiences based on search query
+        if ($search) {
+            $experiences = Experience::where('Post', 'LIKE', "%$search%")->get();
+        } else {
+            // If no search term is provided, fetch all experiences
+            $experiences = Experience::all();
+        }
+
+        return view('user.experienceAllPosts', compact('experiences'));
     }
+
 
     /**
      * Show the form for creating a new resource.

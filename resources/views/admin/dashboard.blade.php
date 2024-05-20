@@ -285,6 +285,7 @@ Dashboard
                   <button type="button" class="btn btn-tool" id="edit-items">
                       <i class="fas fa-edit" style="color:#e13300;"></i> <span style="color:#e13300;">Edit Items</span>
                   </button>
+                
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                       <i class="fas fa-minus"></i>
                   </button>
@@ -601,27 +602,59 @@ Dashboard
       const editItemsButton = document.getElementById('edit-items');
       const todoList = document.getElementById('todo-list');
   
+      // Load items from localStorage
+      function loadItems() {
+          const items = JSON.parse(localStorage.getItem('todoItems')) || [];
+          items.forEach(function(item) {
+              addItemToDOM(item);
+          });
+      }
+
+      // Save items to localStorage
+      function saveItems() {
+          const items = [];
+          todoList.querySelectorAll('.text').forEach(function(item) {
+              items.push(item.textContent);
+          });
+          localStorage.setItem('todoItems', JSON.stringify(items));
+      }
+
+      // Add a new to-do item to the DOM
+      function addItemToDOM(itemText) {
+          const li = document.createElement('li');
+          li.innerHTML = `
+              <span class="handle">
+                  <i class="fas fa-ellipsis-v"></i>
+                  <i class="fas fa-ellipsis-v"></i>
+              </span>
+              <div class="icheck-primary d-inline ml-2">
+                  <input type="checkbox" value="" name="todo" id="todoCheck${itemText}">
+                  <label for="todoCheck${itemText}"></label>
+              </div>
+              <span class="text">${itemText}</span>
+            
+              <button class="delete-item" type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;color: #e13300;">
+                <i class="fas fa-trash-alt" style="color:#e13300;"></i>
+               </button>
+          `;
+          todoList.appendChild(li);
+
+          // Add delete functionality
+          li.querySelector('.delete-item').addEventListener('click', function() {
+              li.remove();
+              saveItems();
+          });
+      }
+
       // Function to add a new to-do item
       addItemButton.addEventListener('click', function() {
           const newItem = prompt('Enter your new to-do item:');
           if (newItem) {
-              const li = document.createElement('li');
-              li.innerHTML = `
-                  <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                  </span>
-                  <div class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo" id="todoCheck">
-                      <label for="todoCheck"></label>
-                  </div>
-                  <span class="text">${newItem}</span>
-                 
-              `;
-              todoList.appendChild(li);
+              addItemToDOM(newItem);
+              saveItems();
           }
       });
-  
+
       // Function to edit existing to-do items
       editItemsButton.addEventListener('click', function() {
           const items = todoList.querySelectorAll('.text');
@@ -629,11 +662,16 @@ Dashboard
               const newText = prompt('Edit your to-do item:', item.textContent);
               if (newText) {
                   item.textContent = newText;
+                  saveItems();
               }
           });
       });
+
+      // Load items on page load
+      loadItems();
   });
-  </script>
+</script>
+
 <script src="{{asset('css.admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
 <script src="{{asset('css.admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

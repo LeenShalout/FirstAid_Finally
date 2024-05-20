@@ -75,7 +75,7 @@
                         </div>
                     </div>
 
-                    <div class="about-info d-md-flex justify-content-md-between">
+                    <div class="about-info d-md-flex justify-content-md-center">
                         <div class="left text-center">
                             <h4>What you are looking for</h4>
                             <h2>We provide Step-by-Step Instructions for First Aid</h2>
@@ -87,8 +87,8 @@
                             <button class="btn btn-outline-primary"><a href="#cases">Read More </a><i
                                     class="bi bi-arrow-down-right-circle"></i></button>
                         </div>
-                        <div class="right">
-                            <img src="{{ asset('Images/about.png') }}" class="" alt="">
+                        <div class="right col-4">
+                            <img src="{{ asset('Images/about.png') }}" class="img-fluid" alt="">
                         </div>
                     </div>
                 </div>

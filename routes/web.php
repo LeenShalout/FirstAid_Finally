@@ -104,6 +104,8 @@ Route::get('/experienceLatest',[UserExperienceController::class, 'latestPosts'] 
 Route::get('experienceMyPostsDelete/{id}',[UserExperienceController::class,'destroy'])->name('experience.delete');
 Route::get('experienceMyPostsEdit/{id}',[UserExperienceController::class,'edit'])->name('experience.edit');
 Route::get('experienceMyPosts',[UserExperienceController::class,'myPosts']);
+Route::get('/searchExperience', [UserExperienceController::class, 'index'])->name('searchExperience');
+
 
 //Profile
 Route::patch('profile/{id}', [UserProfileController::class, 'update'])->name('profile.update');

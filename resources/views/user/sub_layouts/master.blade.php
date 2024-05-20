@@ -84,10 +84,12 @@
 
             <div class="inner-main">
                 <div class="inner-main-header">
+                    <form action="{{ route('searchExperience')}}" method="GET">
                     <span class="input-icon input-icon-sm ml-auto w-auto">
-                        <input type="text" class="form-control form-control-sm bg-gray-200 shadow-none mb-4 mt-4"
-                               placeholder="Search forum" />
+                            <input type="text" name="search" class="form-control form-control-sm bg-gray-200 shadow-none mb-4 mt-4"
+                                   value="{{ request('search') }}" placeholder="Search forum" />
                     </span>
+                    </form>
                 </div>
 
                 <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
