@@ -52,7 +52,7 @@ Table
                             <tr>
                                 <td>{{$experience->user->name}} </td>
                                 <td>{{$experience->Post}} </td>
-                                <td>{{$experience->Img}} </td>
+                                <td><img src="{{ asset("storage/image/$experience->Img") }}" alt="{{$experience->Img}}" style="width: 75px; height: 75px;"></td>
                                 <td>{{$experience->created_at }}</td>
                                 
                             
