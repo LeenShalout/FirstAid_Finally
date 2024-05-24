@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\MyCase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MyCaseController extends Controller
 {
@@ -13,8 +14,16 @@ class MyCaseController extends Controller
      */
     public function index()
     {
-        $cases = MyCase::all();
-        return view('admin.case.case_view', compact('cases'));
+        if(Auth::user()->role=="admin"){
+            $cases = MyCase::all();
+            return view('admin.case.case_view', compact('cases'));
+        }
+        else {
+
+            return view('index');
+
+        }
+      
     }
 
     /**

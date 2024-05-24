@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Workshop;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+use Illuminate\Support\Facades\Auth;
 class WorkshopController extends Controller
 {
     /**
@@ -15,8 +15,16 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        $workshops = Workshop::all();
-        return view('admin/workshop/workshopTitle_view', compact('workshops')); 
+        if(Auth::user()->role=="admin"){
+            $workshops = Workshop::all();
+        return view('admin/workshop/workshopTitle_view', compact('workshops'));
+        }
+        else {
+
+            return view('index');
+
+        }
+        
     }
 
     /**

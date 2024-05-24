@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Registered;
 use Illuminate\Http\Request;
 
@@ -14,8 +14,16 @@ class RegisteredController extends Controller
      */
     public function index()
     {
-        $registrations = Registered::all(); // Retrieve all tasks
-        return view('admin/workshop/registered_view', compact('registrations')); // Pass tasks to the 'tasks' view*
+        if(Auth::user()->role=="admin"){
+            $registrations = Registered::all(); // Retrieve all tasks
+            return view('admin/workshop/registered_view', compact('registrations')); // Pass tasks to the 'tasks' view*
+        }
+        else {
+
+            return view('index');
+
+        }
+       
 
     }
 
