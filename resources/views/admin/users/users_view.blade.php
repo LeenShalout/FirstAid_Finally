@@ -45,7 +45,6 @@ Table
                             <tr>
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>Password</th>
                                 <th>Image</th>
                                 <th>Location</th>
                                 <th>Phone</th>
@@ -61,7 +60,6 @@ Table
                                
                                 <td>{{$user->name}} </td>
                                 <td>{{$user->email}} </td>
-                                <td>{{$user->password}} </td>
                                 <td><img src="{{URL::asset("storage/image/".$user->img)}}" alt="{{$user->img}}" style="width:75px; height:75px"> </td>
                                 <td>{{$user->location}} </td>
                                 <td>{{$user->Phone}} </td>
@@ -110,7 +108,6 @@ Table
                             <tr>
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>Password</th>
                                 <th>Image</th>
                                 <th>Location</th>
                                 <th>Phone</th>
@@ -128,16 +125,15 @@ Table
                               
                                <td>{{$admin->name}} </td>
                                <td>{{$admin->email}} </td>
-                               <td>{{$admin->password}} </td>
                                <td><img src="{{URL::asset("storage/image/".$admin->img)}}" alt="{{$admin->img}}" style="width:75px; height:75px"> </td>
                                <td>{{$admin->location}} </td>
                                <td>{{$admin->Phone}} </td>
                                <td>{{$admin->role}} </td>
                        <td>
                            <a href="{{route('users.edit',$admin->id)}}" style="color: #e13300;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                           <form method="POST" action="{{ route('users.destroy', $admin->id) }}" style="display: inline;">
+                           <form method="POST" action="{{ route('users.forcedelete', $admin->id) }}" style="display: inline;">
                                @csrf
-                               @method('DELETE')
+                               @method('GET')
                                <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;color: #e13300;">
                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
                                </button>
