@@ -26,7 +26,7 @@ if(isset($user) && $user->role == "admin") {
     $workshopCount=Workshop::all()->count();
     $experienceCount=Experience::all()->count();
     $recentlyAddedAdmins = User::where('role', 1)->latest()->take(3)->select('name','img','email')->get();
-   $latestUsers=User::where('role', 0)->latest()->take(5)->select('name','img','created_at')->get();
+   $latestUsers=User::where('role', 0)->latest()->take(4)->select('name','img','created_at')->get();
    $activeUsers=Experience::with('user')->take(2)->get();
    $registeredCount=Registered::all()->count();
    $messages=Contact::all()->count();
