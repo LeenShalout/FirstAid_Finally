@@ -126,7 +126,7 @@
     ],
     datasets: [
       {
-        data: [50,70,40],
+        data: [70,50,40],
         backgroundColor : [ '#e13300', '#808080','#F8DFDB' ],
       }
     ]
