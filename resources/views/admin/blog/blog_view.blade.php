@@ -15,12 +15,12 @@ Table
 @section('css')
 <style>
     .table td, .table th {
-        padding: 8px; /* Adjust the padding to reduce height */
+        padding: 8px;
         vertical-align: middle;
-        max-width: 150px; /* Set a max width for each cell */
-        overflow: hidden; /* Hide overflow text */
-        text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
-        white-space: nowrap; /* Prevent text from wrapping */
+        max-width: 150px; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap; 
     } 
 </style>
 @endsection
