@@ -39,8 +39,4 @@ class UserCaseController extends Controller
         return view('user.cases', compact('case', 'cases'));
     }
 
-
-
-
-
 }

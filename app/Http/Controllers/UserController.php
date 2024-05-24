@@ -128,13 +128,7 @@ class UserController extends Controller
 
         ]);
 
-        // if ($request->hasFile('img')=="true") {
-        //     $user->update([
-
-        // ]);
-
-        // }
-
+       
 
         return redirect()->route('users.index');
 
