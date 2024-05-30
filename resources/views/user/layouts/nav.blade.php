@@ -37,7 +37,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/#contact" class="nav-link">Contact Us</a>
+                        <a href="/#contact" class="nav-link">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -65,7 +65,7 @@
 
 
             @else
-            <div class="signup d-none d-md-block ">
+            <div class="signup">
                 <button class="btn btn-outline-primary"><a href="{{route('login')}}">Sign In </a><i
                         class="bi bi-person-fill"></i></button>
             </div>
